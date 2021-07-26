@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #table1{
+                border-width: 5px;
+                border-color: darkviolet;
+            }
+            td{
+                width: 250px;
+                height: 200px;
+            }
+            #tr1{
+                width: 250px;
+                height: 180px;
+            }
+            #th1{
+                width: 300px;
+                height: 180px;
+            }
+            #th2{
+                width: 300px;
+                height: 180px;
+            }
+        </style>
+    </head>
+<body>
+    <table id="table1" border="1">
+        <thead>
+            <tr id = "tr1">
+                <th colspan="2"></th>
+                <th colspan="2"></th>
+                <th id="th1"></th>
+                <th id="th2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="4"></td>
+                <td colspan="4"></td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+                <td colspan="4" rowspan="4"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+            
+    </table>
+</body>
+</html>
