@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/outStyle.css">
+</head>
+<body>
+	<pre>
+	각 브라우저마다 지원하는 포맷이 다름으로 여러가지 포맷을 작성할 수 있도록 한다.
+		
+	autoplay : 크롬에서는 youtube를 제외하고 막아놓은 상태, IE에서는 가능
+	mutes : 음소거 상태에서는 크롬도 자동재생이 되지만 권장하지는 않음 
+	
+	</pre>
+	<!-- <audio src="../audio/gs-16b-2c-44100hz.mp3" autoplay controls></audio> -->
+	<audio controls> 
+		<source src="../audio/gs-16b-2c-44100hz.ac3" type ="audio/ac3">
+		<source src="../audio/gs-16b-2c-44100hz.mp3" type ="audio/mp3">
+		<source src="../audio/gs-16b-2c-44100hz.wav" type ="audio/wav">
+		<source src="../audio/gs-16b-2c-44100hz.wma" type ="audio/wma">
+	</audio>
+	<br>
+	<video controls>
+		<source src="../video/sample_vedio_file.avi" >
+		<source src="../video/sample_vedio_file.mov" >
+		<source src="../video/sample_vedio_file.ogv" >
+		<source src="../video/sample_vedio_file.wmv" >
+	</video>
+
+</body>
+</html>

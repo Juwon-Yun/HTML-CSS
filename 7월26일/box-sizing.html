@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		width : 150px;
+		padding : 10px; /* 안쪽여백 */
+		box-sizing: border-box;
+		
+		/* content-box
+			css표준이 정의한 초기 기본 값
+			width와 height 속성이 콘텐츠 영역만을 포함하고,
+			안팍 여백과 테두리는 포함하지 않음
+			
+		   border-box
+		    width와 height 속성이 안쪽 여백과 테두리는 포함하되,
+		    바깥 여백은 포함하지 않음
+		*/
+	}
+	#small{
+		border: 5px solid red;
+	}
+	#large{
+		border: 10px solid blue;
+	}
+</style>
+</head>
+<body>
+
+	<div id = "small">HELLO</div>
+	<div id = "large">HELLO</div>
+
+</body>
+</html>
