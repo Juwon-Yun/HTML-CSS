@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function go(){
+	document.getElementById('f1').submit();
+}
+</script>
+</head>
+<body>
+	<form id="f1" action = "test2.jsp" method="post">
+	
+	이름 : <input name= "name"> <br>
+	
+	<!--히든부분(입력하지않지만 서버에 전송해야하는 내용을 전달함)-->
+	<input type ="hidden" value = "관리자">
+	
+	성별 : 남자<input type = "radio" name="gender" value = "남자">
+	여자 <input type = "radio" name="gender" value = "여자">
+	<br>
+	좋아하는 음식 : 
+	<input type = "checkbox" name="food" value = "떡볶이"> 떢볶이
+	<input type = "checkbox" name="food" value = "파스타"> 파스타
+	<input type = "checkbox" name="food" value = "곱창"> 곱창
+	<input type = "checkbox" name="food" value = "빙수"> 빙수
+	<input type = "checkbox" name="food" value = "냉면"> 냉면
+	
+	<br>
+	파일 : <input type = "file" name="file"> <br>
+	
+	<input type = "button" id = "btn" value="전송" onclick = "go();">
+
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/outstyle.css">
+<script>
+function sum(){
+	price = parseInt(documet.getElementById('price').value);
+	su = parseInt(documet.getElementById('su').value);
+	
+	alert("가격 : " + price + "\n 수량 : " + su + "\n 합계 : " + price * su);
+	
+}
+</script>
+</head>
+<body>
+	<pre>
+		script에서 html 요소에 접근하기
+		
+		id 이용 : document.getElementById('id')
+
+		접근 요소에서 값 가져오기	
+		document.getElementById('id').value 또는
+	
+		a = document.getElementById('id');
+		a.value; 
+	</pre>
+	<form >
+		가격 : <input type = "text" id="price">
+		수량 : <input id = "su">
+		<input type = "button" value="확인" onclick="sum();">
+	</form>
+</body>
+</html>

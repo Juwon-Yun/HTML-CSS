@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel ="stylesheet" href = "../css/outStyle.css">
+<script>
+function send(){
+	//id = "f3"을 조회하고 전송기능 부여
+	//f3 = document.getElementById('f3');
+	f3 = window.document.f3; //name 으로 접근, window 생략가능
+	f3.submit();
+	}
+</script>
+<style >
+	input[type="image"]{
+		width : 120px;
+		height : 60px;
+		border : 5px solid blue;
+	}
+</style>
+</head>
+<body>
+<pre>
+ method 전달방식 (GET, POST)
+ 
+ GET
+ 	url뒤에 값을 붙여서 전송하는 방식
+ 	소규모 데이터 전송에 사용(용량을 1024byte로 제한)
+ 	보안에 취약하며 조회/검색 외에는 사용하지 않는다
+ 	서버에서 정보변경이 없을 때 사용 (= 정보 조회 등)
+ 	재실행, 즐겨찾기 등이 가능하다
+ POST
+ 	url에 노출되지 않는 방식
+ 	Header파일 안에 암호화되어 전달
+ 	서버의 정보 변경이 있을 때 사용 (= 결제 등)
+ 	재실행, 즐겨찾기 등이 불가하며
+ 	(=중복 결제의 위험, '뒤로가기'의 경우 만료된 페이지가 뜨는 이유가 이것)
+ 	용량에 제한이 없다.
+</pre>
+
+	<h2>get방식으로 서버 페이지에 요청하기</h2>
+	<form action="test.jsp" method="get">
+		ID <input type="text" name="id"><br>
+		PW <input type="password" name="pw"><br>
+		<input type="submit">
+		<input type="reset">
+	</form>
+	
+	<h2>post방식으로 서버 페이지에 요청하기</h2>
+	<form action="test.jsp" method="post">
+		ID <input type="text" name="id"><br>
+		PW <input type="password" name="pw"><br>
+		<input type="submit">
+		<input type="reset">
+	</form>
+	
+	<pre>
+	 input type = "button"은 전송기능이 없다
+	 전송을 하기 위해서는 javascript를 이용해 기능을 부여해야 한다
+	 버튼이 갖는 표면적 이름도 없으므로 value속성을 통해 버튼 이름을 꼭 기술한다.
+	 
+	 script에서
+	 id로 접근 시 : document.getElementById("id명")
+	 name으로 접근 시 : window.document.name명 //window는 생략 가능 
+	 
+	</pre>
+	<h2>button에 기능 부여하여 서버페이지에 전송</h2>
+	<form id="f3" action="test.jsp" method="post">
+		ID <input type="text" name="id"><br>
+		PW <input type="password" name="pw"><br>
+		<input type="button" value = "전송" onclick = "send();" >
+		<input type="reset">
+	</form>
+
+	<h2>image 서버페이지에 전송</h2>
+	<form id="f3" action="test.jsp" method="post">
+		ID <input type="text" name="id"><br>
+		PW <input type="password" name="pw"><br>
+		<input type="image" src = ../images/space1.jpeg>
+		<input type="reset">
+	</form>
+</body>
+</html>

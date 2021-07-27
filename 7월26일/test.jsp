@@ -11,6 +11,7 @@
 <!-- String varName = request.getParameter(name);
 	 (변수이름)에 name값을 저장할 수 있다. -->
 <%
+	request.setCharacterEncoding("UTF-8");
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
 %>
