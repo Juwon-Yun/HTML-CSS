@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/outStyle.css">
+<style type="text/css">
+/* 요소셀렉터 */
+h1{
+	text-align: center ;
+	text-shadow: blue;
+}
+div{
+	border: 1px solid black; 
+	margin: 10px;
+	padding: 10px;
+}
+/* 전체셀렉터 */
+*{
+	font-style: italic;
+}
+/* 아이디 셀렉터 */
+#p1{
+	background: red;
+}
+#d1{
+	border: 4px dotted yellow; 
+}
+#d2{
+	border: 2px dotted orange; 
+}
+/* 후손 선택자: 요소와 요소 사이에 공백 존재 */
+#d1 p{
+	background: yellow;
+}
+/* id=d1인 요소의 자식요소 p 선택 */
+#d1>p{
+	background: red;
+	font-size: 1.4em;
+}
+#p3+div{
+	color: red;
+}
+#p3~p{
+	color: lime;
+}
+#p3~div, #p3~p{
+	background: teal;
+}
+#d1 div{
+	background: blue;
+}
+/* 클래스 접근은 .을 찍음 */
+.p2{
+	background: pink;
+}
+</style>
+</head>
+<body>
+	<h1>셀렉터 예제</h1>
+	
+	<p id = "p1"> 아이디 단락입니다 </p>
+	<p class = "p2"> 클래스 단락입니다 </p>
+	
+	<div id = "d1">
+		<p>자손 자식 단락입니다</p>
+		<div>
+			<p>자손 자식 단락입니다</p>
+			<div>자손 자식 단락인데 나는 div야</div>
+		</div>
+	</div>
+	
+	<div id = "d2">
+		<p id = "p3">형제1</p>
+		<div>형제2 div</div>
+		<p>형제2 p</p>
+		<p>형제3 p</p>
+		<p>형제4 p</p>
+		<p>형제5 p</p>
+		<p>형제6 p</p>
+	</div>
+			
+</body>
+</html>
