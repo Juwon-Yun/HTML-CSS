@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="styleSheet" href="../css/outStyle.css">
+    <style>
+        div{
+            border : 1px solid blue;
+            width: 200px;
+            height: 100px;
+            padding: 10px;
+            margin: 30px;
+        }
+        #d0{
+            position: static;
+            /* 
+            top: 200px;
+            left: 200px; 
+            static position은 top left 명령어의 영향을 받지 않는다
+            */
+
+        }
+        #d2{
+            position: relative;
+            top: 100px;
+            left: 200px;
+        }
+        #d5{
+            position: absolute;
+            top: 200px;
+            left: 400px;
+        }
+        #d7{
+            position: fixed;
+            top: 200px;
+            left: 400px;
+        }
+    </style>
+    </head>
+    <body>
+        <pre>
+            정적위치(static) : 정상적인 흐름에 따라 배치
+        </pre>
+
+        <div id="d0">d0<br>position: static <br> top,left,right,bottom 속성이 적용되지 않음</div>
+        <div></div>
+
+        <hr>
+
+        <pre>
+            상대위치(relative) : 정적위치를 기준을 위치가 변경
+        </pre>
+
+        <div id="d1">d1</div>
+        <div id="d2">d2<br>position : relative<br>top : 100px; <br> left : 200px; </div>
+        <div id="d3">d3</div>
+
+        <pre>
+            절대위치(absolute) : 컨테이너(윈도우)의 약점을 기준으로 위치가 변경
+        </pre>
+
+        <div id="d4">d4</div>
+        <div id="d5">d5<br>position : absolute<br>top : 200px; <br> left : 400px;</div>
+        <div id="d6">d6</div>
+        <pre>
+            fixed : 컨테이너(윈도우)의 상단을 기준으로 위치가 변경
+        </pre>
+        
+        <div id="d7">d7<br>position : fixed<br>top : 200px; <br> left : 400px;</div>
+        <div id="d8">d8</div>
+    
+    </body>
+    </html>

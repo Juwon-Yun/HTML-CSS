@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<style>
+    div{
+        border: 1px solid orange;
+        margin: 10px;
+        padding: 10px;
+        width: 300px;
+        height: 50px;
+        word-wrap: break-word;
+        overflow: auto;
+        /* scroll */
+        /* auto */
+}
+</style>
+<script>
+function append(){
+   
+    // 1. javascript 배열 생성
+         var str = ["Hello ", "Happy ", "Good ", "Flower ", "Leaf ", "Tree "]
+    
+    // 2. 배열 값 랜덤 만들기
+         var rnd = parseInt(Math.random() * str.length);
+    
+    // 3. 출력 위치 지정, getElementsByTagName('div')[0] : div 요소 중 첫 번째 영역 가져옴
+         var a = document.getElementsByTagName('div')[0];
+         
+    // 4. 일반 문자를 객체화 시킨 (Text Object로 변환)
+         txt = document.createTextNode(str[rnd]);
+         a.appendChild(txt);
+    
+}
+</script>
+</head>
+<body>
+    <pre>
+     1. javascript 배열 생성
+        var str = ["Hello", "Happy", "Good", "Flower", "Leaf", "Tree"]
+        
+     2. 배열 값 랜덤 만들기
+        var rnd = parseInt(Math.random() * str.length);
+
+    3. div에 추가하기 위해 요소에 접근
+        var a = document.getElementsByTagName('div')[0];
+    
+    4. 일반 문자를 객체화 시킨 (Text Object로 변환)
+        txt = document.createTextNode(str[rnd]);
+
+    *createTextNode 해주지 않을 경우, node유형이 아니기 때문에 appendChild 시킬 수 없음
+    *node 란 트리구조에서 데이터의 상하위 계층을 나타내는 위치 항목을 말한다.
+
+    5. div에 자식 객체로 추가하가
+        a.appendChild(text);
+
+</pre>
+    <h3>랜덤 문자열 만들고 append - with overflow</h3>
+    <input type="button" value="추가" onclick="append()">
+    <div></div>
+
+
+</body>
+</html>

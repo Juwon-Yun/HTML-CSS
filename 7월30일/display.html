@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="styleSheet" href="../css/outStyle.css">
+    <style>
+     p{
+         width: 30%;
+         height: 40px;
+         border : 10px solid olive;
+
+     } 
+     #p2{
+         display: none;
+     }
+     #p3{
+         visibility: hidden;
+     }
+    </style>
+<script>
+    function proc(){
+        a = document.getElementById('p1');
+        a.style.display = "none";
+        b = document.getElementById('p2');
+        b.style.display = "block"
+        c = document.getElementById('p3');
+        c.style.visibility = "visible"
+    }
+</script>
+</head>
+<body>
+
+    <input type="button" value="확인" onclick="proc()">
+    <p id="p1">올림픽 금메달 가자~</p>
+    <p id="p2">(didplay : none)올림픽 금메달 가자~</p>
+    <p id="p3">(visibility : hidden)올림픽 금메달 가자~</p>
+
+
+</body>
+</html>

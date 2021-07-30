@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<style>
+    div{
+        border : 5px dotted orange;
+        margin : 10px;
+        padding: 10px;
+        width  : 500px;
+        height : auto;
+    }
+    p{
+        border: 3px solid orangered;
+        margin: 10px;
+    }
+</style>
+<script>
+    function getTN(){
+        // a = document.getElementsByTagName('div')[0];
+        arr = [];
+        arr = document.getElementsByTagName('div');
+        for (i = 0; i < arr.length; i++) {
+            arr[i].style.border = "3px inset red";
+        }
+        // a.style.borderColor = "teal";
+        // alert( a.length + "개의 div를 가지고있어요");
+    }
+
+</script>
+</head>
+<body>
+<!-- ECMA Script의 표준은 6버전이다. -->
+<pre>
+    script에서 html요소에 접근할 때
+    id를 이용해서 접근
+            - document.getElemnetById('id') //더 효율적이다. es2버전
+            - document.querySelector('#id') //new 버전, es6버전
+
+    tag를 이용해서 접근
+            - document.getElementsByTagsName('tag명')[n]    //n번째 태그 선택
+            - document.getElementsByTagsName('tag명')       //모든 'tag명' 요소 선택
+            - document.querySelector('tag명')               //첫 번째 태그만 선택
+            - document.querySelectorAll('tag명')            //모든 'tag명' 요소 선택
+    
+    class를 이용해서 접근
+            - document.getElementsByClassName('class명')[n] //n번째 클래스 요소 선택    
+            - document.getElementsByClassName('class명')    //모든 'class명' 요소 선택
+            - document.querySelector('.class명')            //첫 번째 'class명' 요소만 선택
+            - document.querySelectorAll('.class명')         //모든 'class명' 요소 선택
+</pre>
+
+
+    <h3>getElemnetByTagName / getElementsByClassName</h3>
+    <div>
+        첫 번째 div
+        <p class="p1">첫 번째 p1</p>
+        <p class="p2">두 번째 p2</p>
+        <p class="p3">세 번째 p3</p>
+        <p class="p4">네 번째 p4</p>
+        <p class="p5">다섯 번째 p5</p>
+        <p class="p6">여섯 번째 p6</p>
+    </div>
+
+    <div>div2</div>
+    <div>div3</div>
+    <div>div4</div>
+
+
+    <input type="button" value="getTagName" onclick="getTN()">
+    <input type="button" value="getClassName" onclick="getCN()">
+</body>
+</html>
