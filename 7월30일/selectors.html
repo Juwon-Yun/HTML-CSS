@@ -19,16 +19,39 @@
 </style>
 <script>
     function getTN(){
-        // a = document.getElementsByTagName('div')[0];
+        // a = document.getElementsByTagName('div')[0];     //index 항목 선택
+        // a.style.borderColor = 'teal';
+
+        a.document.querySelector('div');        //첫 번쨰 항목만 선택
+        a.style.borderColor = "red";
+        // alert(a.length);
+
         arr = [];
-        arr = document.getElementsByTagName('div');
+        arr = document.querySelectorAll('div');
+        // arr = document.getElementsByTagName('div');
+        
         for (i = 0; i < arr.length; i++) {
-            arr[i].style.border = "3px inset red";
+            arr[i].style.border = "3px inset yellow";
         }
         // a.style.borderColor = "teal";
         // alert( a.length + "개의 div를 가지고있어요");
     }
+    
+    function getCN(){
+        // a = document.getElementsByClassName('p')[3];
+        // a = document.querySelector('.p');
+        // a.style.background = 'powderblue';
 
+
+        arr = [];
+        // a = document.getElementsByClassName('p');
+        arr = document.querySelectorAll('.p');
+        for(i=0; i < arr.length; i++){
+            arr[i].style.background = 'brown';
+        }
+        // a.style.background = 'gray';
+
+    }
 </script>
 </head>
 <body>

@@ -5,35 +5,57 @@
 <title>Insert title here</title>
 <link rel = "styleSheet" href="../css/outstyle.css">
 <style>
-    #d1{
-        background-color: yellow;
-        width: 100%;
-        height: 50px;
+    div{
+        border-radius: 10px;
+        border: 1px solid black;
+        padding: 10px;
+        margin: 1px;
+
+        box-sizing: border-box;  
+        /* border-box 일때 계산되는 영역은 content + padding + border */
     }
-    #d2{
+    #header{
+        background-color: gold;
+        width: 100%;
+        height: 200px;
+        
+    }
+    #nav{
         background-color: red;
-        width: 30%;
-        height: 100px;
+        width: 29%;
+        /* width: calc(30% - 1px); */
+        height: 400px;
         float: left;
     }
-    #d3{
-        background-color: blue;
+    #content{
+        background-color: darkgreen;
         width: 70%;
-        height: 100px;
+        /* width: calc(70% - 1px); */
+        height: 400px;
         float: right;
     }
-    #d4{
-        background-color: aqua;
+    #footer{
+        background-color: blueviolet;
         width: 100%;
-        height: 50px;
+        height: 200px;
         clear: both;
     }
 </style>
 </head>
-<body>
-    <div id="d1">d1</div>
-    <div id="d2">d2</div>
-    <div id="d3">d3</div>
-    <div id="d4">d4</div>
+<body> 
+    <div id="header">header</div>
+    <div id="nav">nav</div>
+    <div id="content">content</div>
+    <div id="footer">footer</div>
+
+    <header></header>
+    <aside></aside>
+    <section>
+        <article></article>
+        <article></article>
+        <article></article>
+    </section>
+    <footer></footer>
+
 </body>
 </html>
