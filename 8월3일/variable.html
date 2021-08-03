@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<script>
+    // var name = "varname1";
+    // console.log(name);
+    // var name = "javascript";
+    // console.log(name);
+    
+    // let name2 = "varname1";
+    // console.log(name);
+    // let name2 = "javascript";
+    //Identifier 'name2' has already been declared
+    //식별자가 이미 선언 되어 있음
+    //재선언 불가, 재할당 가능
+
+    // name = "javascript";
+    // console.log(name);
+
+    // const name = "constName1";
+    // console.log(name);
+    // const name = "javascript";
+    //Identifier 'name' has already been declared
+    //재선언과 재할당 불가능 (상수 변수에 할당)
+
+
+
+    // var키워드는 함수내 범위에서 유효하다. 그리고 함수내 범위에서와 
+    // 전역범위에서의 기능은 동일하게 동작한다.
+    
+    // function main(){
+    //     var a = 1;
+    //     var b = 2;
+    //     console.log(a+b);
+    // }
+    // main();
+    
+    // var c = 2;
+    // var d = 2;
+    // console.log(c+d);
+    
+    // function main(){
+    //     for(var i=0; i<5; i++){
+    //         //함수 범위 내에 사용이 가능하기 때문에 
+    //         //for문 밖에서도 console.log(temp)를 쓸 수 있다.
+    //         var temp = i;
+    //     }
+    //     console.log(temp);
+    // }
+    // main();
+    
+    // for(var i=0; i<5; i++){
+    //     var temp = i;
+    // }
+    // console.log(temp);
+
+    // let, const 는 블록범위에서 유효
+    if(true){
+        var var_name = "var";
+        let let_name = "let";
+    }
+    console.log(var_name);
+
+    for(var var_i = 0; var_i < 5; var_i++){}
+    // console.log(let_i);  //에러
+
+    let name = 'kim';
+    if(true){
+        let name = 'park';
+    }
+    console.log(name);
+
+    var a;
+    let b;
+    // const c='';        //초기화 안하면 에러
+
+    const c = 100;
+    console.log(c);
+
+
+
+</script>
+<style>
+</style>
+</head>
+<body>
+<pre>
+    변수 선언 키워드 3가지
+    1. var (함수 범위 : 함수안에 선언된 변수는 그 함수 안에서 유효)
+        - 변수 선언과 초기화(메모리 할당)가 동시에 이루어진다.
+        - 변수를 재선언해도 에러가 나지 않으며, 각기 다른 값을 출력한다.
+        - 유연한 변수 선언 방식으로 의도치 않는 경우가 발생할 가능성이 많다.
+    
+    때문에 이를 보완하고자 ES2015(ES6버전)이후 let, const 변수 선언 방식이 등장했다.
+
+    2. let (블록범위 : 변수가 선언된 블록, 구문, 표현식 내에서만 유효)
+        - 변수 사용 전까지 초기화되지 않는다.
+        - 변수 재할당은 가능
+        - 변수 재선언은 불가
+        - 호이스팅 불가
+
+    3. const (블록범위)
+        - 변수 사용 전까지 초기화되지 않는다.
+        - 변수의 재할당과 재선언 모두 불가
+        - 처음 선언시 반드시 초기화(할당)해야 한다. (초기화 누락 에러가 발생)
+        - 보통 대문자를 사용해 선언하지만 강제하지 않는다.
+
+    var과 달리 let, const는 불변하다.
+
+    전역변수(global variable) 와 지역변수(local variable)
+
+    1. 전역변수 : 전역범위의 변수는 코드 블럭의 바깥쪽에서 선언된다.
+                 전역변수는 코드 블럭을 포함한 프로그램의 모든 곳에서 접근할 수 있다.
+    2. 지역변수 : 코드 블럭 범위안에서 정의된 변수로 그 블럭 안에서만 사용 가능하다.
+
+    *자바스크립트의 전역범위는 함수범위 내부와 동일하게 동작한다.
+</pre>
+
+
+
+</body>
+</html>

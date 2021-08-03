@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<script>
+    console.log(typeof 1);
+    console.log(typeof 'hello');
+    console.log(typeof true);
+    console.log(typeof [1,2,3,4]);
+    console.log(typeof {name: 'yu', age:24});
+    console.log(typeof new Date());
+    console.log(typeof function a(){});
+    console.log(typeof myCar);
+    console.log(typeof null);
+
+    /*
+     typeof 연산자로 null의 타입을 체크해보면
+     Object가 뜨는데 사실 객체가 아니라 기본타입이다.
+     자바스크립트 초기 버전의 버그로 typeof 구현 내용에 null을 체크하는 항목이 누락되었으며,
+     이에 대한 수정 제안이 있었지만 거절된 이유는 이미 많은 코드들이 
+     기존의 typeof로 작성되었기 때문에 고치면 위험하다는 답변
+    
+    */
+</script>
+<style>
+</style>
+</head>
+<body>
+<pre>
+    typeof : 변수의 데이터 타입을 반환하는 연산자
+
+    원시타입 (primaitive data type)
+    undefined : 변수가 정의되지 않았거나 값이 없을 때
+    null      : 의도적으로 값이 없음을 명시하기 위해
+    number    : 타입이 수 일때
+    String    : 타입이 문자열 일때
+    boolean   : 타입이 true, false 일때
+    object, function : 타입이 함수, 배열 등 객체일 때
+    symbol    : 타입이 심볼일 때
+        ㄴES6에서 새롭게 추가된 7번째 타입을
+            - 변경 불가한 원시 타입의 값으로 다른 값에 중복되지 않는 유일무이한 값
+            - 이름의 충돌 위험이 없는 유일한 객체의 프로퍼티 키를 만들기 위해 사용
+
+
+</pre>
+</body>
+</html>

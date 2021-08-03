@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<script>
+    //대입연산자 (= 할당연산자) : 오른쪽의 값을 왼쪽에 있는 변수, 
+    let a = 10;
+    console.log(a);
+    
+    //수식에 여러 개의 할당 연산자가 나타나면
+    //해당 연산자들은 오른쪽에서 왼쪽으로 평가된다.
+    let x = y = z = 10;
+    console.log(x + ", " + y +", " + z);
+    
+
+    //연산이 포함된 할당
+    // + 연산자는 숫자보다 문자열의 우선순위가 높다.
+    // 따라서 피연산자 가운데 하나가 문자열이면 다른 피연산자도
+    // 문자열로 변환된다.
+    let b = 10;
+    console.log(b += 5);
+    console.log(b -= 5);
+    console.log(b *= 5);
+    console.log(b /= 5);
+    console.log(b %= 5);
+    console.log(b += '5');  // 문자형 '05'가 된다.
+    // 숫자가 아닌 피연산자에 - 연산자를 사용할 경우
+    // 피연산자를 숫자로 변환하려고 시도한다.
+    console.log(b -= '5');  // 정수형 0이 된다.
+
+</script>
+<style>
+</style>
+</head>
+<body>
+
+</body>
+</html>

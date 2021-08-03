@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<script>
+    function proc(){
+
+        let x =prompt("나이를 입력하세요", "0~100사이로 입력하세요")
+        alert(x);
+    }
+    function calc(){
+        
+        let x = parseInt(prompt("첫 번째 정수 입력"));
+        let y = parseInt(prompt("두 번째 정수 입력"));
+        let sum = x+y;
+        
+        let z = document.getElementById('d1');
+        
+        // 출력모양 작성
+        let str = "입력 값 1: " + x + "<br>";
+        str += "입력 값 2: " + y + "<br>";
+        str += "덧셈 결과 값 : " + sum;
+        
+        z.innerHTML = str;
+    }
+    
+    function calc1(){
+        
+        let x = parseInt(prompt("첫 번째 정수 입력"));
+        let y = parseInt(prompt("두 번째 정수 입력"));
+        let z = prompt("연산자(+, -, *, /)중 하나를 입력");
+        
+        // 조건문을 이용해 결과 값 출력
+        // if문 : 비교 연산자를 이용해서 조건식이 true일때 실행한다
+        // if(z == '+'){
+        //     sum = x + y;
+        // }else if(z == '-'){
+        //     sum = x - y;
+        // }else if(z == '*'){
+        //     sum = x * y;
+        // }else{
+        //     sum = x / y;
+        // }
+        
+        // switch문 : 비교할 변수의 값에 따라 실행문을 선택한다.
+        switch(z){
+            case '+' : 
+                sum = x + y;
+                break;
+            case '-' : 
+                sum = x - y;
+                break;
+            case '*' : 
+                sum = x * y;
+                break;
+            case '/' : 
+                sum = x / y;
+                break;
+        }
+        let str = "입력 값 1: " + x + "<br>";
+            str += "입력 값 2: " + y + "<br>";
+            str += "연산자 : " + z + "<br>";
+            str += "연산 결과 값 : " + sum;
+        
+        document.getElementById('d2').innerHTML = str;
+
+    }
+
+    function calc2(){
+        //value값 가져와서 연산
+        //변수 선언 키워드 사용하지 않을 경우 전역변수가 된다
+        
+        x = document.getElementById('x').value;
+        y = document.querySelector('#y').value;
+
+        x = parseInt(x);
+        y = parseInt(y);
+
+        sum = x + y;
+        document.getElementById('sum').value = sum;
+
+    }
+</script>
+<style>
+</style>
+</head>
+<body>
+
+    <h3>prompt( ) 함수 - 나이 입력받기</h3>
+    <input type="button" value="확인" onclick="proc()">
+
+    <h3>
+        두개의 정수를 각각 입력하고 덧셈을 수행
+        prompt( ) 함수의 리턴 결과 값은 String 이다. 
+        덧셈 연산을 하기 위해 정수로 변환(-parseInt())한다
+    </h3>
+    <input type="button" value="확인" onclick="calc()">
+    
+    <h3>
+        두개의 정수와 연산자를 입력받아 계산
+    </h3>
+    <input type="button" value="확인" onclick="calc1()">
+
+    <div id="d1"></div>
+    <div id="d2"></div>
+
+    <br>
+
+    첫 번째 수 <input id="x"> <br>
+    두 번째 수 <input id="y"> <br>
+    결과 : <input id="sum"> <br>
+    <input type="button" value="덧셈" onclick="calc2()">
+
+</body>
+</html>
