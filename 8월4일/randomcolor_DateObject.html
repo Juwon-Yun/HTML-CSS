@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<script>
+function proc(){
+
+    let now = new Date();
+    // console.log(now);
+
+    // 출력 대상 검색
+    // document.getElementsByTagName('div')[n] 여러개일 경우
+    let vdiv = document.getElementsByTagName('div')[0];
+
+    vdiv.innerHTML = now + '<br>';
+    vdiv.innerHTML += now.toLocaleString() + '<br>';
+    
+    // vdiv.textContent += now + "<br>";
+    // vdiv.textContent += now.toLocaleString() +  "<br>";
+
+    //출력 내용 구성
+    let str = now + "<br>";
+    str += now.toLocaleString() + "<br>";
+
+    vdiv.innerHTML = str;
+    vdiv.innerHTML = str;
+
+}
+
+function change(){
+    //Math.random()으로 난수생성
+    let cr = parseInt(Math.random() * 256);
+    let cg = parseInt(Math.random() * 256);
+    let cb = parseInt(Math.random() * 256);
+
+    //출력 대상 검색
+    let vdiv = document.getElementsByTagName('div')[0];
+    
+    //10진수 색상 표현
+    // vdiv.style.background = "rgb("+cr+","+cg+","+cb+")";
+
+    //10진수 -> 16진수 진법 변환
+    //toString : 숫자형을 문자형으로 변환
+    //숫자.toString(진법) : 숫자를 문자로 변환하면서 진법을 바꿔준다
+    r16 = cr.toString(16);
+    g16 = cg.toString(16);
+    b16 = cb.toString(16);
+
+    //16진수 색상 표현
+    vdiv.style.background = "#" + r16 + g16 + b16;
+
+}
+
+</script>
+<style>
+div{
+    border : 2px dotted blue;
+    width : 400px;
+    height: 200px;
+    margin: 20px;
+    padding: 10px;   
+    background-color: yellow;
+}
+</style>
+</head>
+<body>
+
+<pre>
+    script에서 html요소 출력
+        -innerHTML   : input요소 외 div, p, span, td등에 (입)출력한다.
+                     출력내용에 태그를 포함한다.
+        -textContent : input요소 외 div, p, span, td 등에 (입)출력한다.
+                     출력내용에 태그를 문자열 자체로 표기한다.
+        -value       : input요소 (textarea 포함) 태그에 (입)출력한다.
+
+
+
+</pre>
+
+    <input type="button" value="날짜확인하기" onclick="proc(), change()">
+    <div onclick=""></div>
+
+
+</body>
+</html>
