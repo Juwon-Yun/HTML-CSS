@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<script>
+    function calc1(){
+        let sum = 0;
+        for (let i = 1; i <= 10; i++) {
+            sum += i;
+        }
+        document.getElementById('d1').innerHTML = sum; 
+    }
+    function calc2(){
+        let sum = 0;
+        for (let i = 1; i <= 200; i++) {
+            if( i % 2 !=0){
+                continue;
+            }
+            sum+= i;   
+        }
+        document.getElementById('d2').innerHTML = sum;
+    }
+    
+    function calc3(){
+        let score = 0;
+        let sum = 0;
+        while(true){
+            score = parseInt(prompt("누적시키고 싶은 정수를 입력하세요"));
+            sum += score;
+            if(score == 0){
+                document.getElementById('d3').innerHTML = sum;
+                return;
+            }
+        }
+    }
+    function calc4(){
+        let sum = 0;
+        for(let i=1; i <= 10; i++){
+            for(let k=1; k<=10; k++){
+                if((i+k) % 3 != 0){
+                    continue;
+                }else if((i+k) % 3 == 0){
+                    sum = (i + k);
+                    document.getElementById('d4').innerHTML = sum;
+                }
+                
+            }
+        }
+    }
+    
+</script>
+<style>
+    div{
+        font-size: 80px;
+        border: 1px dotted black;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+</head>
+<body>
+    <input type="button" value="1부터 10까지의 합은??" onclick="calc1()" >
+    <div id="d1"></div>
+    <br><br>
+    <input type="button" value="1부터 200까지의 짝수의 합은?(continue)" onclick="calc2()" >
+    <div id="d2"></div>
+    <br><br>
+    <input type="button" value="입력한값을 계속 더하고, 0을 입력하면 누적값 출력" onclick="calc3()" >
+    <div id="d3"></div>
+    <br><br>
+    <input type="button" value="다중 for문으로 1~10까지 중에 j와 k의 합이 3의 배수일 때만 출력(continue)" onclick="calc4()">
+    <div id="d4"></div>
+    <br><br>
+</body>
+</html>
