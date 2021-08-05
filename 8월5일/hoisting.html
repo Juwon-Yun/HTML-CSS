@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<script>
+    showName();
+
+    function showName(){
+        console.log(name);
+
+        var name = "David";
+        console.log(name);
+    }
+</script>
+<style>
+</style>
+</head>
+<body>
+<pre>
+    호이스팅 Hoisting
+
+    자바스크립트가 갖는 특징
+
+    함수 안의 변수를 최상단으로 끌어 올려주는 고유의 기능을 말한다
+
+    대상 : var, 선언식함수
+    비대상 : let, const, 표현식함수
+
+    선언은 올라가지만 정의는 올라가지 않기 때문에 (= 변수 사용은 가능하지만 값이 없는 상태)
+    의도치 않는 동작으로 이어질 수 있다
+
+    변수 호이스팅 : 변수가 선언되기 전에 출력해도 에러가 발생하지 않는 현상(에러발생 대신 undefined 출력)
+    함수 호이스팅 : 선언문 형태의 함수를 미리 호출해도 에러를 발생하지 않는 현상
+    
+    * 호이스팅의 영향을 최소화 하는 것이 가독성과 유지보수 측면에서 좋다. 고로 함수 표현식과 let, const 사용을 권장
+</pre>
+</body>
+</html>
