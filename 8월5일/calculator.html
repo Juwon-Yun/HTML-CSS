@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<style>
+    table{
+        border-collapse: collapse;
+    }
+    td{
+        padding: 5px 10px;
+        
+        text-align: center;
+    }
+    input{
+        text-align: right;
+        border: none;
+    }
+    input:focus{
+        outline: none;
+    }
+</style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td colspan="4">
+                <input type="text" id="display">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <input type="text" id="result">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" onclick="reset()">AC</td>
+            <td onclick="add('/')">/</td>
+        </tr>
+        <tr>
+            <td onclick="add(7)">7</td>
+            <td onclick="add(8)">8</td>
+            <td onclick="add(9)">9</td>
+            <td onclick="add('*')">*</td>
+        </tr>
+        <tr>
+            <td onclick="add(4)">4</td>
+            <td onclick="add(5)">5</td>
+            <td onclick="add(6)">6</td>
+            <td onclick="add('-')">-</td>
+        </tr>
+        <tr>
+            <td onclick="add(1)">1</td>
+            <td onclick="add(2)">2</td>
+            <td onclick="add(3)">3</td>
+            <td onclick="add('+')">+</td>
+        </tr>
+        <tr>
+            <td colspan="2" onclick="add(0)">0</td>
+            <td onclick="add('.')">.</td>
+            <td onclick="calculate()">=</td>
+        </tr>
+    </table>
+</body>
+<script>
+    // window.onload=function{
+        let numberClicked = false;
+        function add(char){
+            if(numberClicked == false){
+                //isNaN은 Not a number의 줄임말로 숫자가 아니면 true를 반환한다.
+                if(isNaN(char) == true){
+                    // numberClicked가 false고 isNaN(char)가 true이면 
+                    // 아무것도 안한다
+                //연산자가 아니라면~
+                }else{
+                    //식 뒤에 값을 넣어준다
+                    document.getElementById('display').value += char;
+                }
+            // 만약에 이전에 숫자를 입력 했으면 식뒤에 값을 넣어준다.
+            }else{
+                document.getElementById('display').value += char;
+            }
+            //숫자가 아니라면 true => 문자열 이라면
+            if(isNaN(char) == true){
+                numberClicked == false;
+            }else{
+                numberClicked == true;
+            }
+        }
+        function calculate(){
+            let display = document.getElementById('display');
+            let result = eval(display.value);
+            document.getElementById('result').value = result;
+        }
+        function reset(){
+            document.getElementById('display').value = "";
+            document.getElementById('result').value = "";
+
+        }
+    // }
+    </script>
+</html>
