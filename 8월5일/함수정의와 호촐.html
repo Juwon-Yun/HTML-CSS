@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<script>
+window.onload =function(){
+
+    //value값을 매개변수 a로 받음
+    
+    //input 요소의 값 읽어오기
+    let xVal = parseInt(document.getElementById('x').value);
+    let yVal = parseInt(document.getElementById('y').value);
+
+function proc(a){
+        let res = 0;
+       
+        //비교연산
+        switch(a){
+            case '+' :
+                res = add();
+                break;
+            case '-' :
+                res = sub();
+                break;
+            case '*' :
+                res = multi();
+                break;
+            case '/' :
+                res = divide();
+                break;
+        }
+    
+    document.getElementById('sp1') = xVal;
+    document.write('sp2') = yVal;
+    document.getElementById('sp3').value = res;
+    }
+
+
+    function add(){
+        return xVal + yVal;    
+    }
+    function sub(){
+        return xVal - yVal;    
+    }
+    function multi(){
+        return xVal * yVal;    
+    }
+    function divide(){
+        return xVal / yVal;    
+    }
+}
+</script>
+<style>
+</style>
+</head>
+<body>
+
+<form>
+    첫번째<input id="x"> <br>
+    두번째<input id="y"> <br>
+    <!-- 결과<input id="res"> <br> -->
+    <!-- 인자(value)를 통해 매개변수(param)로 전달 -->
+    <input type="button" value="+" onclick="proc('+')">
+    <input type="button" value="-" onclick="proc('-')">
+    <input type="button" value="*" onclick="proc('*')">
+    <input type="button" value="/" onclick="proc('/')">
+
+    <p>첫 번째 값 : <span id="sp1"></span></p>
+    <p>두 번째 값 : <span id="sp2"></span></p>
+    <p>결과<span id="sp3"></span></p>
+</form>
+
+</body>
+</html>

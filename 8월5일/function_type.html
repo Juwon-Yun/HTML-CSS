@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<script>
+    //선언식
+    function proc1(){
+        document.querySelector('.d1').innerHTML = "선언식 함수";
+    }
+    
+    //표현식
+    var proc2 = function(){
+        document.querySelector('.d2').innerHTML = "표현식 함수";
+    }
+    
+    //람다식
+    var proc3 =()=>{
+        document.querySelector('.d3').innerHTML = "람다식 함수";
+    }
+</script>
+<style>
+</style>
+</head>
+<body>
+    <pre>
+    선언식 함수 (= 기명함수, Named Function)
+        브라우저 런타임 이전에 선언되는 함수
+
+    표현식 함수 (= 익명함수, Anonymous Function)
+        브라우저 런타임 시점에 동적으로 선언되는 함수
+        
+    람다 함수 (= 화살표 함수, ES6, java8버전에서 나온 함수)
+        let 함수명 = (매개변수) => {실행문} //매개변수가 하나 있으면 괄호 생략 가능
+                                           //매개변수가 없거나 여러개 있으면 괄로를 만들고 안쪽에 작성
+
+    람다 함수에서는 this를 일반적 형태의 this로서 사용할 수 없다 (용도가 다름)                                               
+        ㄴ람다 함수에서의 this는 자기 자신(람다식 자체)이 된다
+    </pre>
+    <input type="button" value="확인" onclick="proc1()">
+    <div class="d1"></div>
+    <br><br>
+    <input type="button" value="확인" onclick="proc2()">
+    <div class="d2"></div>
+    <br><br>
+    <input type="button" value="확인" onclick="proc3()">
+    <div class="d3"></div>
+    <br><br>
+
+</body>
+</html>

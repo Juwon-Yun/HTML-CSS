@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<script>
+
+    //무명함수 - 즉시시행함수 : 변수에 넣고 바로 사용할 수도 있음
+    (function (str){
+        str;
+    }) ("안녕?");
+
+    let v = (function (str){
+                return str;
+             }) ("?녕안");
+    console.log("v : " + v);    
+
+    let v2 = (function (a, b){
+                let m = a+b;
+                 return m;
+             }) (1, 2);
+    console.log("v2 : " + v2);    
+        
+    //일반적 선언식함수 형태
+    function sum(a,b){
+        let m = a+b;
+        return m;
+    }
+    console.log("선언식 함수 : " + sum(1,2));
+    //선언식 함수에서 사용되는 함수 이름은 외부에서 사용이 가능하다
+    //선언문의 코드를 자바스크립트엔진이 표현식으로 변경해주기 때문
+
+    // 익명함수 === 무명함수 === 표현식함수
+    var sum = function(a, b){
+        let m = a + b;
+        return m;
+    }
+    console.log(sum);
+    console.log("표현식 함수 : "+sum(1,2));
+
+    //표현식 함수
+    //익명, 기명 모두 가능
+    //익명
+    var plus = function(x, y){
+        return x+y;
+    }
+    console.log("표현식함수-익명 : " + plus(3, 4));
+
+    var minus = function minusFnc(x,y){
+        return x-y;
+    }
+    console.log("표현식함수-기명 : " + minus(3, 4));
+    // console.log("표현식함수-기명 : " + minusFnc(3, 4)); //minusFnc is not defined
+    // 함수표현식에서 사용된 함수 이름은 외부 코드에서는 접근이 불가하며 대신 정의된 함수의 내부에서만 재귀 호출이 가능
+
+    const s = function func(who){
+        if(who){
+            alert("hello" + who);
+        }else{
+            func('Guest');
+        }
+    }
+    // s('406호');
+    s();
+
+</script>
+<style>
+</style>
+</head>
+<body>
+    <pre>
+        무명함수 = 익명함수 : 함수명이 없는 함수
+        단 한번 사용되는 함수에 주로 사용 
+        코드의 간결함과 중복될 수 있는 함수명을 피할 수 있다
+
+        특정 변수에 대입하는 무명(익명)함수 => 함수표현식
+        생성된 함수를 변수에 할당하여 사용
+        (자바스크립트에서 함수는 객체자료형 중 하나로서,
+             값처럼 취급되기 때문에 변수에 할당이 가능하다)
+    </pre>
+</body>
+</html>

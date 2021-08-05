@@ -50,6 +50,33 @@
         }
     }
     
+    function calc5(){
+        for (let i = 1; i <= 100; i++) {
+            if(i % 2 == 0 && i % 3 == 0){
+                document.getElementById('d5').innerHTML = i;
+            }
+        }
+    }
+    function calc6(){
+        let a;
+        let b;
+        let res;
+        a  = parseInt(prompt("첫 번째 수 입력"));
+        b  = parseInt(prompt("두 번째 수 입력"));
+        while(true){
+            if( (a + b) != 100){
+               continue;
+            }else if( (a+b) >100){
+                res += (a+b);
+            }else if( a==0 && b==0){
+                return;
+            }
+            
+        }
+        res += a +"+"+ b +"="+ (a+b);
+        res += "<br>";
+        document.getElementById('d6').innerHTML = res;
+    }
 </script>
 <style>
     div{
@@ -72,6 +99,12 @@
     <br><br>
     <input type="button" value="다중 for문으로 1~10까지 중에 j와 k의 합이 3의 배수일 때만 출력(continue)" onclick="calc4()">
     <div id="d4"></div>
+    <br><br>
+    <input type="button" value=" 1~100까지 2의 배수이면서 3의배수인 정수 출력" onclick="calc5()">
+    <div id="d5"></div>
+    <br><br>
+    <input type="button" value=" 두 수를 입력(prompt) 두수의 합이 100이상일 때만 출력(continue, 두 수 모두 0이면 종료)" onclick="calc6()">
+    <div id="d6"></div>
     <br><br>
 </body>
 </html>
