@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<script>
+    let circle = {
+        rad : 10;
+        getArea : function(){
+            return Math.pow(this.rad,2) * Math.PI;
+        },
+        getCircum : function(){
+            return this.rad * 2 * Math.PI;
+        }
+    }
+
+let res = "";
+while(true){
+    //반지름 입력 - prompt
+    circle.rad = prompt("반지름 입력 : ");
+    res += `반지름 : ${circle.rad} <br>`;
+    res += `면적 : ${circle.getArea()} <br>`;
+    res += `둘레 : ${circle.getCircum()} <br>`;
+
+    //속성 추가
+    circle.name = "동그라미";
+    res += `이름 : ${circle.name} <br>`;
+
+    //메소드 추가
+    circle.getDiamt = function(){
+        return 2* this.rad;
+    }
+
+}
+</script>
+<style>
+</style>
+</head>
+<body>
+<pre>
+    circle객체 생성 - 리터럴에 의한 객체
+    속성 : 반지름
+    메소드 : 
+        - 면적구하기 : 반지름 * 반지름 * 3.14
+        - 둘레구하기 : 반지름 * 2 * 3.14
+
+</pre>
+</body>
+</html> 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<script>
+    let rect = {
+        garo = 10,
+        sero = 12,
+        getArea : function () {
+            let area = this.garo * this.sero;
+            return area;
+        },
+        getCircum : function () {
+            return (this.garo + this.sero) * 2;
+        }
+    }
+let cc = rect.getCircum();
+//출력
+let res = `가로 : ${rect.garo} <br>`;
+    res += `세로 : ${rect.sero} <br>`;
+    res += `면적 : ${rect.getArea()} <br>`;
+    res += `둘레 : ${cc}`;
+window.onload=function(){
+document.getElementsByTagName('div')[0].innerHTML = res;
+}
+</script>
+<style>
+</style>
+</head>
+<body>
+    <input type="button" value="변경" onclick="change()">
+    <div></div>
+</body>
+</html>

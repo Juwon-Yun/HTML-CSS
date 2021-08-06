@@ -5,16 +5,19 @@
 <title> Insert title here </title>
 <link rel = "styleSheet" href="../css/outStyle.css">
 <script>
-window.onload =function(){
 
     //value값을 매개변수 a로 받음
     
     //input 요소의 값 읽어오기
-    let xVal = parseInt(document.getElementById('x').value);
-    let yVal = parseInt(document.getElementById('y').value);
-
-function proc(a){
-        let res = 0;
+    let xVal;
+    let yVal;
+    
+    function proc(a){
+       
+        xVal = parseInt(document.getElementById('x').value);
+        yVal = parseInt(document.getElementById('y').value);
+       
+       let res = 0;
        
         //비교연산
         switch(a){
@@ -50,7 +53,6 @@ function proc(a){
     function divide(){
         return xVal / yVal;    
     }
-}
 </script>
 <style>
 </style>

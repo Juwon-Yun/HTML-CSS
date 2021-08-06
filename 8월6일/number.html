@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here </title>
+<link rel = "styleSheet" href="../css/outStyle.css">
+<script>
+    let strNum1 = "1";
+    console.log("parseInt : " + parseInt(strNum1));
+    console.log("Number : " + Number(strNum1));
+    console.log("");
+    
+    let strNum2 = "01";
+    console.log("parseInt : " + parseInt(strNum2));
+    console.log("Number : " + Number(strNum2));
+    console.log("");
+    
+    let strNum3 = "2021년도";
+    console.log("parseInt : " + parseInt(strNum3));//숫자를 찾아서 반환
+    console.log("Number : " + Number(strNum3));
+    console.log("");
+    
+    let strNum4 = "올해는 2021년도";
+    console.log("parseInt : " + parseInt(strNum4));
+    console.log("Number : " + Number(strNum4));
+    console.log("");
+    
+    let strNum5 = "1.234";
+    console.log("parseInt : " + parseInt(strNum5));
+    console.log("parseFloat : " + parseFloat(strNum5));
+    console.log("Number : " + Number(strNum5));
+    console.log("");
+</script>
+<style>
+</style>
+</head>
+<body>
+    <pre>
+        목적 : 연산을 위해
+        역할 : String 타입의 숫자를 Number타입으로 변환
+        차이 : 
+            - parseInt() : 문자열을 피싱하여 숫자를 찾는 기능을 가진 함수
+            - Number() : 숫자를 생성하는 역할을 하는 기본함수
+                    String -> Number로 바뀌는 기능을 지원하지만
+                    문자열을 숫자로 바꿔주는 기능 전용은 아님
+        
+    </pre>
+</body>
+</html>
