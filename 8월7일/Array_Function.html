@@ -13,6 +13,59 @@
         return a + 5;
     }
     const myFunction2 = a => a + 5;
+
+    function calcFunction(price, tax = 0.08){
+        const result  = price + price * tax;
+        return result;
+    }
+    const result1 = calcFunction(100);
+    console.log(result1); //108
+
+    const result2 = calcFunction(100, 0.1);
+    console.log(result2); //110
+
+    function calcsum2(...prices){
+        let result = 0;
+        for (const value of prices){
+            result += value;
+        }
+        return result;
+    }
+
+    const result3 = calcsum2(10, 20);
+    console.log(result3);
+
+    const result4 = calcsum2(5,10, 15);
+    console.log(result4);
+
+    //switch는 ===비교를 한다.
+    //문자 타입의 '100'
+
+    const myvalue = '100';
+
+    switch (myvalue) {
+        case 100:
+            //숫자 타입일 경우
+            console.log('숫자 타입의 100입니다.');
+            break;
+        
+        default:
+            console.log('숫자 타입의 100이 아닙니다.');
+            break;
+    }
+
+    function myFunction3(flgA){
+        for (let index = 0; index < 10; index++) {
+            if(flgA === false){
+                continue;
+            }
+            if(index % 2 === 0){
+                continue;
+            }
+
+            console.log(index);
+        }
+    }
 </script>
 <style>
 </style>
