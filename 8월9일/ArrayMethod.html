@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script>
+    let arr = ["홍길동", "고길동", "둘리", "도우너", "또치", "희동이", "고길동", "철수", "영희", "김은대"];
+
+    function proc1() {
+        let idx = arr.indexOf("도우너");
+        
+        //출력
+        let str = "index of : ";
+        str += "찾는 이름 '도우너'는 : " + idx + "번째 인덱스에 있어요<br><br>";
+        document.getElementById('rst1').innerHTML = str;
+    }
+
+    let proc2 = function(){
+        // index[1]
+        let idx = arr.lastIndexOf("고길동", 5);
+        // index[6]
+        idx = arr.lastIndexOf("고길동");
+        
+        //출력
+        let str = "lastindex of : ";
+        str += "찾는 이름 '고길동'는 : " + idx + "번째 인덱스에 있어요<br><br>";
+        document.getElementById('rst2').innerHTML = str;
+    }
+
+    let proc3=function(){
+        let str = "indexOf : 이름이 여러개인 경우 모두 찾기<br>";
+        let a = "고길동";
+        let idx = 0;
+        let str_idx = "";
+
+        while(true){
+            idx = arr.indexOf(a, idx);
+            if(idx == -1) break;
+
+            str_idx += idx + "번째에 ";
+            idx++;
+        }
+        str += "찾는 이름 : " + a + "<br>";
+        str += str_idx + "있습니다<br>";
+
+        document.getElementById('rst3').innerHTML = str;
+
+    }
+
+    let proc4 = function(){
+        let nm = prompt("이름을 입력 : ");
+        let idx = arr.indexOf(nm);
+        let str = "";
+        if(idx == 1){
+            str += "찾는 이름 없음";
+        }else{
+            str += nm + "님은 " + idx + "번째에 있음 "
+            
+            // ' ' 사이에 href 의 속성을 마무리해주는 역할
+            str += "<a href = 'detail.jsp?name= "+ nm +"'>상세보기</a>";
+            //쿼리문
+            /*
+            --id, name, hp
+            select * from member where mem_name = '김은대';
+
+            oraclexe app oracle product 11.2.0 server jdbc lib  ojdbc6 (jdk1.6이상)
+            src webapp webINF lib ojdbc6 붙여넣기 build path -> add to build path -> ojdbc6.jar 
+
+            */
+        }
+
+        document.getElementById('rst4').innerHTML = str;
+    }
+    
+</script>
+<style>
+</style>
+</head>
+<body>
+    <pre>
+        indexOf(value, start)
+        : value-필수요소, 찾을 문자열/ start - 선택요소, 검색을 시작할 index, 입력하지 않으면 처음부터 검색
+        lastIndexOf(value, start)
+        : value-필수요소, 찾을 문자열/ start - 선택요소, 검색을 끝낼 index, 입력하지 않으면 끝까지 검색
+
+        대소문자를 구분하며, 찾는 문자열이 없을 경우 -1을 리턴한다
+    </pre>
+
+    <p>arr = ["홍길동", "고길동", "둘리", "도우너", "또치", "희동이", "고길동", "철수", "영희", "김은대"]</p>
+
+    <input type="button" value="indexOf" onclick="proc1()">
+    <input type="button" value="lastindexOf" onclick="proc2()">
+    <input type="button" value="while_indexOf" onclick="proc3()">
+    <input type="button" value="indexOf" onclick="proc4()">
+
+    <div id="rst1"></div>
+    <div id="rst2"></div>
+    <div id="rst3"></div>
+    <div id="rst4"></div>
+</body>
+</html>

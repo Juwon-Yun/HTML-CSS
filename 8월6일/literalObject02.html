@@ -5,10 +5,10 @@
 <title> Insert title here </title>
 <link rel = "styleSheet" href="../css/outStyle.css">
 <script>
+    const rad = 10;
     let circle = {
-        rad : 10;
         getArea : function(){
-            return Math.pow(this.rad,2) * Math.PI;
+            return Math.pow(this.rad, 2) * Math.PI;
         },
         getCircum : function(){
             return this.rad * 2 * Math.PI;
@@ -31,7 +31,33 @@ while(true){
     circle.getDiamt = function(){
         return 2* this.rad;
     }
+    res += `원지름 : ${circle.getDiamt()} <br>`;
 
+    //속성 삭제
+    res += `추가했던 이름 속성 삭제 전 : ${circle.name} <br>`;
+    delete circle.name;
+    res += `추가했던 이름 속성 삭제 후 : ${circle.name} <br><br>`;
+    
+    /*
+    delete는 단순히 객체와 속성의 연결을 끊을 뿐 실제로 메모리에서 제거되지 않음
+    delete하고 싶은 값을 null이나 undefined으로 설정하는 것을 추천
+    이때 key가 삭제되는 것이 아니라서 key가 드러나는 경우가 있는데
+    그때에는 value === undefined로 체크하여 구분하는것을 권장한다.
+    */
+
+    //메소드 삭제
+    //Delete usually works for variables but it doesn't work for functions.
+    // => 삭제는 일반적으로 변수에 대해서는 작동하지만 함수는 작동하지 않는다
+    res += `추가했던 원지름 메소드 삭제 전 : ${circle.getDiamt} <br>`;
+    delete circle.getDiamt;
+    res += `추가했던 원지름 메소드 삭제 후 : ${circle.getDiamt} <br><br>`;
+    
+    conf = confirm("계속할까요?");
+    if(!conf) break;
+}
+
+window.onload = function() {
+    document.getElementsByTagName('div')[0].innerHTML = res;
 }
 </script>
 <style>
@@ -44,7 +70,7 @@ while(true){
     메소드 : 
         - 면적구하기 : 반지름 * 반지름 * 3.14
         - 둘레구하기 : 반지름 * 2 * 3.14
-
 </pre>
+<div></div>
 </body>
 </html> 

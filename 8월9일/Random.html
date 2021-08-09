@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script>
+    // 직사각형
+    const rectangle = document.querySelector('.rectangle');
+
+    // 버튼 클릭시 onClickButton() 실행
+    document.querySelector('.button').addEventListener('click', onClickButton);
+
+    function onClickButton(){
+        // 0~359 사이 임의의 수를 가져오기
+        const randomHue = Math.trunc(Math.random() * 360);
+        
+        // 그라데이션의 시작과 끝 색상을 결졍
+        const randomColorStart = `hsl(${randomHue}, 100%, 50%)`;
+        const randomColorEnd = `hsl(${randomHue + 40}, 100%, 50%)`;
+        
+        //직사각형의 그라데이션 처리 변수
+        rectangle.style.setProperty('--start', randomColorStart);
+        rectangle.style.setProperty('--end', randomColorEnd);
+    }
+
+
+</script>
+<style>
+    .rectangle{
+        background-color: black;
+        width: 100px;
+        height: calc(100% - 50px);
+        /* --start와 --end는 css 변수다 */
+        --start : hsl(0, 100%, 50%);
+        --end : hsl(322, 100%, 50%);
+        background-image: linear-gradient(-135deg, var(--start), var(--end) );
+    }
+</style>
+</head>
+<body>
+    <button class="button">색상 변경</button>
+    <div class="rectangle"></div>
+</body>
+</html>
