@@ -8,8 +8,10 @@
     // 직사각형
     const rectangle = document.querySelector('.rectangle');
 
-    // 버튼 클릭시 onClickButton() 실행
-    document.querySelector('.button').addEventListener('click', onClickButton);
+    window.onload = function(){
+        // 버튼 클릭시 onClickButton() 실행
+        document.querySelector('.button').addEventListener('click', onClickButton);
+    }
 
     function onClickButton(){
         // 0~359 사이 임의의 수를 가져오기
@@ -35,7 +37,7 @@
         --start : hsl(0, 100%, 50%);
         --end : hsl(322, 100%, 50%);
         background-image: linear-gradient(-135deg, var(--start), var(--end) );
-    }
+    } 
 </style>
 </head>
 <body>

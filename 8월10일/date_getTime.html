@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script>
+    let now = new Date();
+
+    let proc1 = function(){
+        let bir = new Date("2018.11.12");
+
+        //경과시간 구하기 = getTime()
+        let tday = now.getTime();
+        let bday = bir.getTime();
+
+        //return 값은 milliseconds(1초 = 1000)
+        let time = tday-bday;
+        
+        let sec = time / 1000;
+        let min = sec / 60;
+        let hh = min / 60;
+        let dd = hh / 24;
+        let yy = dd / 365;
+
+        res = `태어난 년도 : ${bir.toLocaleDateString()} <br>`;
+        res += `오늘 날짜 : ${now.toLocaleDateString()} <br> `;
+        res += `${yy.toFixed(2)} 년 경과 <br> <br>`;
+        res += `${dd.toFixed()} 월 경과 <br> <br>`;
+        res += `${hh.toFixed()} 시간 경과 <br> <br>`;
+        res += `${min.toFixed()} 분 경과 <br> <br>`;
+        res += `${sec.toFixed()} 초 경과 <br> <br>`;
+
+        document.getElementById('rst1').innerHTML = res;
+    }
+
+    function proc2(){
+        christ = new Date("2021.12.25");
+
+        let nowtime = now.getTime();
+        let christime = christ.getTime();
+
+        let time = christime - nowtime;
+
+        dd = time/1000/60/60/24;
+
+        let res = `크리스마스 : ${christ.toLocaleDateString()} <br>`;
+        res += `오늘 날짜 : ${now.toLocaleDateString()} <br>`;
+        res += `크리스마스까지 ${dd.toFixed()}일 남았다`;
+
+        document.getElementById('rst2').innerHTML = res;
+    }
+
+    let proc3=function(){
+        //input 요소 date의 값을 가져오기 - value 사용
+        let pday = document.getElementById('pday').value;
+
+        // console.log( pday );
+        
+        //입력된 날짜로 date객체 생성
+        pday = new Date(pday);
+
+        let nowtime = now.getTime();
+        let ptime = pday.getTime();
+
+        let time = nowtime - ptime;
+
+        let dd = time / 1000 / 60 / 60 / 24;
+
+        let res = "";
+        if(dd >= 7){
+            res += `교환/반품/환불 기간이 지났습니다.`;
+        }else{
+            res += `교환/반품/환불이 가능합니다.`;
+        }
+        document.getElementById('rst3').innerHTML = res;
+    }
+</script>
+<style>
+</style>
+</head>
+<body>
+    <h3>getTime() : 경과시간 구하기 (return millisec)</h3>
+    <input type="button" value="경과시간 구하기" onclick="proc1()">
+    <div id = "rst1"></div>
+    
+    <h3>크리스마스까지 남은 날 수</h3>
+    <input type="button" value="확인" onclick="proc2()">
+    <div id = "rst2"></div>
+    
+    <h3>선택한 날로부터 현재까지의 일 수 구하기
+        7일 이상 지나면 교환/환불/반품 불가
+    </h3>
+    <input type="date" id="pday">
+    <input type="button" value="가능?" onclick="proc3()">
+    <div id = "rst3"></div>
+    
+
+</body>
+</html>

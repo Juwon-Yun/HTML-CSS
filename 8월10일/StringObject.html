@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script>
+    let str = "우리나라 좋은나라 대한민국 만세~~ 독도는 우리땅~~ABCabc0123";
+    function proc1(){
+        //index위치의 문자 리턴
+        let a = str.charAt(3);
+        //'라'의 유니코드를 리턴
+        let b = str.charCodeAt(3);
+        //A의 유니코드 리턴
+        let c = str.charCodeAt(29); 
+        //a의 유니코드 리턴
+        let d = str.charCodeAt(32);
+        //0의 유니코드 리턴
+        let e = str.charCodeAt(35);
+
+        let res = `charAt(3) >> ${a} <br>`;
+        res += `charCodeAt(3) >> ${b} <br>`;
+        res += `charCodeAt(29) >> ${c} <br>`;
+        res += `charCodeAt(32) >> ${d} <br>`;
+        res += `charCodeAt(35) >> ${e} <br>`;
+
+        document.getElementById('rst1').innerHTML = res;
+    }
+
+    let proc2=function(){
+        
+    }
+
+    let proc3 = function(){
+        let tval = document.getAnimations('txt').values;
+        
+    }
+</script>
+<style>
+</style>
+</head>
+<body>
+    <h3>
+        charAt(index) : index번째에 있는 문자 리턴 <br>
+
+        charCodeAt(index) : index번째에 있는 문자의 unicode를 리턴 (A->65, a->97, 0->48)
+
+    </h3>
+
+        <input type="button" value="확인" onclick="proc1()">
+        <div id = "rst1"></div>
+
+    <h4>
+        indexOf(value, index) : value값의 위치 리턴, index는 검색 시작위치<br>
+        lastIndexOf(value, index) : 뒤에서부터 value값을 찾아서 위치 리턴
+
+    </h4>
+        <input type="button" value="확인" onclick="proc2()">
+        <div id = 'rst2'></div> 
+        
+    <h4>
+
+    </h4>
+        <input type="button" value="확인" onclick="proc2()">
+        <div id = 'rst2'></div> 
+</body>
+</html>

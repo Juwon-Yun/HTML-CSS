@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script>
+    now1 = new Date();
+    //milliseconds
+    now2 = new Date(33000);
+    //dateString
+    now3 = new Date("1999.12.31");
+    //year, month(0부터 1월), date, hours, minutes, seconds, ms
+    now4 = new Date(2000, 04-1, 14, 15, 46, 50, 0);
+
+window.onload=function(){
+
+    document.getElementById('rst1').innerHTML = now1 + "<br>"
+                                              + now1.toLocaleString() + "<br>"
+                                              + now1.toLocaleDateString() + "<br>"
+                                              + now1.toLocaleTimeString() + "<br>";
+                                              
+    document.getElementById('rst2').innerHTML = now1 + "<br>"
+                                              + now2 + "<br>"
+                                              + now3 + "<br>"
+                                              + now4; 
+
+    }
+</script>
+<style>
+</style>
+</head>
+<body>
+    <div id="rst1"></div>
+    <div id="rst2"></div>
+</body>
+</html>
