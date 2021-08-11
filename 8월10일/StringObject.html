@@ -6,6 +6,8 @@
 <link rel = "styleSheet" href="../css/outstyle.css">
 <script>
     let str = "우리나라 좋은나라 대한민국 만세~~ 독도는 우리땅~~ABCabc0123";
+
+    // 
     function proc1(){
         //index위치의 문자 리턴
         let a = str.charAt(3);
@@ -27,13 +29,29 @@
         document.getElementById('rst1').innerHTML = res;
     }
 
+    //indexOf(value, idx) : value값의 위치를 index로 리턴(찾는 값이 없을 때 -1 리턴)
+    //idx는 정방향/역방향에서부터 검색시작위치를 지정
     let proc2=function(){
         
+        let a = str.indexOf("우리");
+        let b = str.lastIndexOf("우리");
+        let c = str.indexOf("우리",5); //정방향(left -> right)부터 검색 시작 위치 지정
+        let d = str.indexOf("우리",20); //역방향(right -> left)부터 검색 시작 위치 지정
+        let e = str.indexOf("뜨");
+
+        let res = `str.indexOf("우리") : ${a} <br>`;
+            res += `str.lastindexOf("우리") : ${b} <br>`;
+            res += `str.indexOf("우리",5) : ${c} <br>`;
+            res += `str.indexOf("우리",20) : ${d} <br>`;
+            res += `str.indexOf("뜨") : ${e} <br>`;
+
+        document.getElementById('rst2').innerHTML = res;
+
     }
 
     let proc3 = function(){
         let tval = document.getAnimations('txt').values;
-        
+
     }
 </script>
 <style>
@@ -59,7 +77,7 @@
         <div id = 'rst2'></div> 
         
     <h4>
-
+        trim () : 앞뒤 공백 제거
     </h4>
         <input type="button" value="확인" onclick="proc2()">
         <div id = 'rst2'></div> 
