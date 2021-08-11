@@ -38,19 +38,95 @@
         let c = str.indexOf("우리",5); //정방향(left -> right)부터 검색 시작 위치 지정
         let d = str.indexOf("우리",20); //역방향(right -> left)부터 검색 시작 위치 지정
         let e = str.indexOf("뜨");
+        let f = str.search("좋은");
 
         let res = `str.indexOf("우리") : ${a} <br>`;
             res += `str.lastindexOf("우리") : ${b} <br>`;
             res += `str.indexOf("우리",5) : ${c} <br>`;
             res += `str.indexOf("우리",20) : ${d} <br>`;
             res += `str.indexOf("뜨") : ${e} <br>`;
+            res += `str.search("좋은") : ${f}<br>`;
 
         document.getElementById('rst2').innerHTML = res;
 
     }
 
+    //trim() : 앞뒤 공백 제거
     let proc3 = function(){
-        let tval = document.getAnimations('txt').values;
+
+        let tVal = document.getElementById('txt').value;
+        let res = `공백제거 전 : ${tVal.length} <br>`;
+        tVal = tVal.trim();
+        res += `공백제거 후 : ${tVal.length} <br>`;
+
+        document.getElementById('rst3').innerHTML = res;
+    }
+
+    //str ~ end 사이의 문자열을 잘라낸다. end는 포함되지 않는다
+    //substring(str, end) : str부터 end전까지 문자열 리턴, end 생략시 str부터 끝까지 찾음
+    //slice(str, end) : str부터 end전까지 문자열 리턴
+    //substr(str, length) : str부터 length길이만큼 문자열 리턴
+    let proc4 = function(){
+        //찾을 문자열의 시작위치를 찾기위해 indexOf로 idx를 리턴받음, idx(20)
+        let start = str.indexOf("독");
+        //idx(20 + 7)
+        let end = start + "독도는 우리땅".length;
+
+        let s1 = str.substring(start, end);
+        let s2 = str.substring(start);
+        let s3 = str.slice(start, end);
+        let s4 = str.substr(start, "독도는 우리땅".length);
+
+        let res = "";
+            res += `start : ${start} <br>`;
+            res += `end : ${end} <br>`;
+            res += `substring(start, end) : ${start, end} <br>`;
+            res += `substring(start) : ${start} <br>`;
+            res += `slice : ${s3} <br>`;
+            res += `substr : ${s3} <br>`;
+
+            document.getElementById('rst4').innerHTML = res;
+    }
+
+    //split('구분자', '갯수') : 구분자를 기준으로 문자열을 분리하여 배열로 리턴
+    let proc5=function(){
+        //구분자를 " " 공백으로 하여 문자열을 배열로 만듬
+        let arr = str.split(" ");
+
+        // 공백 3개로 짜름
+        // let arr = str.split(" ", 3);
+
+        let res = `str.length : ${str.length} <br>`;
+            res += `arr.length : ${arr.length} <br><br>`;
+            res += `str[3] : ${str[3]} <br>`;
+
+            //3개로 짤랐기때문에 2개까지만나와서 3번쨰는 undifined가 출력된다.
+            res += `arr[3] : ${arr[3]} <br>`;
+
+            document.getElementById('rst5').innerHTML = res;
+
+    }
+
+    //replace(찾을 문자열, 변경할 문자열) : 문자열을 찾아 변경할 문자로 바꿈
+    let proc6=function(){
+        let tVal = document.getElementById('text').value;
+        // //g는 global의 약자로 모든 문장을 뜻함 /(넣을 명령어)/g 
+        tVal.replace(/\r/g, "").replace(/\n/g, "<br>");
+        
+        // \r\n (CRLF) : 문자의 새로운 줄을 시작하는데 쓰이는 제어문자 또는 그 구조
+        // CR(Carriage Return) : 커서를 현재 행 맨 좌측으로 이동시킴
+        // LF(Line Feed) : 커서를 현재 행의 다음 행으로 이동
+        // 각 운영체제 별 개행문자 사용이 다름 window(\r\n), unix(/n), 매킨토시(/r)만 사용
+
+        document.getElementById('rst6').innerHTML = tVal;
+    }
+
+    let proc7=function(){
+        //innerHTML을 사용해서 문자열을 감싸는 태그영역 값 가져오기
+        let dVal = document.getElementById('rst7').innerHTML;
+        dVal = dVal.replace(/<br>/g, " ");
+
+        document.getElementById('text2').value = dVal;
 
     }
 </script>
@@ -58,6 +134,7 @@
 </style>
 </head>
 <body>
+    <h2> let str = "우리나라 좋은나라 대한민국 만세~~ 독도는 우리땅~~ABCabc0123"</h2>
     <h3>
         charAt(index) : index번째에 있는 문자 리턴 <br>
 
@@ -79,7 +156,42 @@
     <h4>
         trim () : 앞뒤 공백 제거
     </h4>
-        <input type="button" value="확인" onclick="proc2()">
-        <div id = 'rst2'></div> 
+        <input type="text" name="텍스트" id="txt">
+        <input type="button" value="확인" onclick="proc3()">
+        <div id = 'rst3'></div> 
+
+    <h4>
+        substring(str, end), slice(str, end), substr(str, length) <br>
+        str ~ end 사이 문자열을 잘라낸다. end는 포함되지 않는다
+    </h4>
+    <input type="button" value="확인" onclick="proc4()">
+    <div id="rst4"></div>
+    
+    <h4>
+        split('구분자', 갯수) : 구분자를 기준으로 문자열을 분리하여 배열로 리턴
+    </h4>
+    <input type="button" value="확인" onclick="proc5()">
+    <div id="rst5"></div>
+    
+    <h4>
+        textarea에 입력(value) - \r\n이 포함되어 있다 <br>
+        div에 출력(innerHTML) - \r\n을 &lt;br> 태그로 바꿔서 출력한다
+    </h4>
+    <textarea id="text" cols="30" rows="5"></textarea>
+    <input type="button" value="확인" onclick="proc6()">
+    <div id="rst6"></div>
+
+    <h5>
+        div에 입력된 문자(innerHTML)를 textarea로 출력(value) <br>
+        &lt;br> 태그를 \r\n 또는 없는 상태로 변경한다
+    </h5>
+    <textarea name="" id="text2" cols="50" rows="10"></textarea>
+    <input type="button" value="확인" onclick="proc7()">
+    <div id="rst7">
+코끼리 한마리가 거미줄에 걸렸네<br>
+신나게 그네를<br>
+탔다네
+    </div>
+
 </body>
 </html>

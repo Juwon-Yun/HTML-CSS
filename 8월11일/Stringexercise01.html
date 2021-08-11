@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script>
+let proc1=function(){
+    let str = prompt("주민등록번호를 입력하세요", "110325-4432618");
+    
+    // 11/03/25/-4/432618
+    // index(0,1 : 년도/ 2,3 : 월 / 4,5 : 일/ 7 : 성별, 태어난 년도(1900년도 2000년도 구분))
+
+    //자료추출 - 년도
+    let d1 = str.substring(0,2); // a.slice(0,2), a.substr(0,2)
+    //자료추출 - 월
+    let d2 = str.slice(2,4);    //a.substring(2,4), a.substr(2,2)
+    //자료추출 - 일
+    let d3 = str.substr(4, 2); //a.substring(4, 6), a.slice(4,6)
+    //자료추출 - 성별 및 출생년도 구분
+    let d4 = str.charAt(7); //a.substring(7, 8), a.slice(7,8), a.substr(7,1)
+
+    let gd = "";
+    let yy = "";
+
+    //성별체크
+    if(d4 == '1' || d4 == '3') gd = "남자";
+    else gd = "여자";
+
+    //출생년도 체크
+    if(d4 == '1' || d4 == '2') yy = "19";
+    else if(d4 == '3' || d4 == '4') yy = "20";
+    
+    //생일
+    let bir = yy.concat(d1) + "년 " + d2 + "월 "  + d3 + "일 ";
+
+    //나이
+    let now = new Date();
+    let year = now.getFullYear();
+    let age = year - (yy.concat(d1));
+
+    let res = "주민번호 : " + str.substring(0,8) + "****** <br>";
+        res+= "생년월일 : " + bir + "<br>";
+        res+= "성별 : " + gd + "<br>";
+        res+= "나이 : " + age;
+
+        document.getElementById('rst1').innerHTML = res;
+}
+
+   let proc2 = function(){
+        
+        let a = prompt("주민등록번호를 입력하세요", "110325-4432618");
+        let idNum = "";
+        
+        //입력받은 주민등록번호 합치기 1
+        a = a.split("-");
+        idNum = a[0].concat(a[1]);
+        
+        let multi = "234567892345";
+        let sum = 0;
+        // 2~9까지 반복해서 더함
+        // 1. A*2 + B*3 + C*4 + ... + H*9 + I*2 ... L*5의 총합을 구한다
+        for(let i = 0; i < idNum.length-1; i++){
+            if(idNum.charAt(i) == '0') continue;    //0인 항목은 건너뛴다
+           // sum = idNum.charAt(i) * multi[i];
+           sum = idNum.charAt(i) * (i%8+2); // 0%8+2 = 2, 1%8 = 2 = 3... 8%8 +2 = 2, 9%8+2 = 3
+        }
+
+        //2. 1번의 합을 11로 나눈 나머지를 구한다.
+        //3. 11에서 2번의 결과를 뺀다.
+        let b = 11 -(sum % 11);
+        //4. 3번의 결과가 0~9라면 그대로, 10이면 0, 11이면 1로 변환한다.
+        //if(b == '10') b = 0;
+        //if(b == '11') b = 1;
+
+         b = b%10;
+        //5. 4번의 결과가 M자리와 일치하면 맞는번호
+        let last = a.charAt(idNum.length);
+        let str = "";
+        if( b == last) str = "주민번호가 맞아요";
+        else str = "주민번호가 아니에요";
+
+        let res = "입력번호 : " + a.substr(0,8) + "****** <br>";
+        res += str;
+
+        document.getElementById('rst2').innerHTML = res;
+
+    }
+</script>
+<style>
+</style>
+</head>
+<body>
+<pre>
+    주민등록번호를 입력받아 출력하는 프로그램
+    생일 : 0000년 0월 00일
+    성별 : xx
+    나이 : 00살
+</pre>
+    <input type="button" value="확인" onclick="proc1()">
+    <div id="rst1"></div>
+
+    <pre>
+        주민등록번호를 입력받아 유효성을 검증하는 프로그램
+        (ABCDEF-GHIJKLM)
+        1.  A*2 + B*3 + C*4 +...+ H*9 + I*2... L*5의 총합을 구한다
+        2.  1번 합을 11로 나눈 나머지를 구한다
+        3.  11에서 2번의 결과를 뺀다.
+        4.  3번의 결과가 0~9라면 그대로, 10이면 0, 11이면 1로 변환한다
+        5.  4번의 결과가 M자리와 일치하면 맞는 번호
+    </pre>
+    <input type="button" value="확인" onclick="proc2()">
+    <div id="rst2"></div>
+
+</body>
+</html>
