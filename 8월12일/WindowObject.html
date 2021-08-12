@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script>
+    let proc1=function(){
+        open("http://www.naver.com", "_blank", "width=1200, height=1200")
+    }
+    let showAlert=function(){
+        setTimeout(function(){
+            alert("setTimeout()을 사용하여 표시됩니다.")
+        }, 3000);
+    }
+</script>
+<style>
+</style>
+</head>
+<body>
+    <pre>
+        window 객체
+            DOM : 문서를 객체로 표현한 것을 DOM(Documnet Object Model) 자바스크립트는 DOM을 통해서 HTML을 제어한다
+                - document
+            BOM : 웹브라우저를 객체로 표현한 것을 BOM(Browser Object Model)
+                - navigator
+                - screen
+                - location
+                - frames
+                - history
+                - XMLHttpRequest
+            JavaScript : 각각의 언어들을 제어하는 공통적인 언어 //브라우저를 제어한다면 DOM, BOM이 존재한다 
+                - Array
+                - Object
+                - Function
+    </pre>
+    <input type="button" value="네이버" onclick="proc1()">
+    <button onclick="showAlert()">누르면 3초뒤에 알림창!!!</button>
+    <pre>
+        &lt;DOM Object>
+        각각의 태그별로 input 인경우 HTMLinputElement
+        a 태그 인경우 HTMLAnchorElement
+
+        F12-Properties를 보면 상속 관게를 확인 할 수 있다.
+        F12-console에서 DOM 명령어를 사용할 수 있다.
+        
+    </pre>
+        
+    <input type="text" name="" value="egoing" id="input2">
+    <a href="http://www.naver.com"></a>
+</body>
+</html>
