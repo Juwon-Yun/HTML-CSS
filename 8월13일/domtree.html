@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script>
+//appendChild를 알아보자
+
+//li가 가지고 있는 텍스트노드 값을 이용해 이미지를 생성
+let proc1=function(){
+
+    //index 1번째 ul목록 가져옴
+    let list = document.getElementsByTagName('ul')[1];
+    let li = list.getElementsByTagName('li');
+
+    let vdiv = document.createElement('div');
+
+    //   console.log(li[0].firstChild.data, li[0].firstChild.nodeValue);
+    for (let i=0; i<li.length; i++){
+        // 각 li의 텍스트노드 값을 추출하여
+        let vsrc = li[i].firstChild.data;
+        // img 요소 생성
+        let vimg = document.createElement('img');
+        vimg.src = "../images/" + vsrc;
+        vimg.width = 50;
+        vimg.height = 50;
+
+        li[i].appendChild(vimg);
+        // vdiv.appendChild(vimg);
+    }
+    // document.getElementById('d1').appendChild(value);
+}
+function proc2(lithis){
+
+    //각 요소의 값을 this로 전달받아서 값을 추출
+    let vscr = lithis.firstChild.data;
+
+    //이미지 생성
+    let vimg = document.createElement('img');
+    vimg.src = "../images" + vscr;
+    vimg.style.width = "50px";
+    vimg.style.height = "50px";
+    
+    lithis.appendChild(vimg);
+}
+
+window.onload=function(){
+
+    //여러요소를 반환하므로 배열로 리턴받는다
+    let litag = document.getElementsByClassName('add');
+
+    for(let i = 0; i < litag.length; i++){
+        //매개변수로 들어가는 함수는 괄호 처리하지 않는다
+        litag[i].addEventListener('click', addImage);
+    }
+}
+
+function addImage(){
+    //this 객체를 사용해서 해당 li요소를 받아 사용할 수 있다.
+    let vsrc = this.firstChild.data;
+
+    //이미지 생성
+    let vimg = document.createElement('img');
+    vimg.src = "../images" + vsrc;
+    vimg.style.width = "50px";
+    vimg.height = 50;
+
+    this.appendChild(vimg);
+}
+</script>
+<style>
+</style>
+</head>
+<body>
+    <ul>
+        <li>List01</li>
+        <li>List02</li>
+    </ul>
+    <div id="d1">
+    <ul>
+        <li>coffee.jpg</li>
+        <li>사자.jpg</li>
+        <li>space1.jpeg</li>
+        <li>sponge.jpg</li>
+        <li>호랑이.jpg</li>
+    </ul>
+</div>
+    <input type="button" value="사진불러오기" onclick="proc1()">
+
+    <pre>li요소 클릭시 해당 이미지 출력</pre>
+
+    <ul>
+        <li onclick="proc2(this)">coffee.jpg</li>
+        <li onclick="proc2(this)">사자.jpg</li>
+        <li onclick="proc2(this)">space1.jpeg</li>
+        <li onclick="proc2(this)">sponge.jpg</li>
+        <li onclick="proc2(this)">호랑이.jpg</li>
+    </ul>
+    
+    <pre>addEventListener를 이용해서 한번에 이벤트 설정</pre>
+    
+    <ul>
+        <li class="add">coffee.jpg</li>
+        <li class="add">사자.jpg</li>
+        <li class="add">space1.jpeg</li>
+        <li class="add">sponge.jpg</li>
+        <li class="add">호랑이.jpg</li>
+    </ul>
+</body>
+</html>

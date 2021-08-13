@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script>
+
+let str = ['꽃', '나무', '햇살', '바람', '구름', '비'];
+
+function proc1(){
+    //랜덤을 발생하여 선택된 문자열로 텍스트노드를 생성
+    let rnd = parseInt(Math.random() * str.length);
+    let txt = document.createTextNode(str[rnd]);
+
+    let ptag = document.createElement('p');
+    //p태그 생성 후 생성한 텍스트노드를 붙임
+    ptag.appendChild(txt);
+
+    //div 영역에 완성된 p태그( 텍스트노드를 포함한 )를 붙임
+    document.getElementById('rst1').appendChild(ptag);
+}
+
+let proc2 = function(){
+
+    //삭제대상의 부모 요소 찾기
+    let parent = document.getElementById('rst1');
+    //삭제대상 선택
+    let child = parent.lastChild;
+
+    parent.removeChild(cild);
+}
+let proc3 = function(){
+    //랜덤을 발생해서 선택된 문자열로 텍스트노드를 생성
+    let rnd = parseInt(Math.random() * str.length);
+    let txt = document.createTextNode(str[rnd]);
+
+    //삭제버튼 생성
+    let btn = document.createElement('input');
+    btn.type = "button";
+    btn.value = "삭제";
+    btn.onclick=function(){
+        
+        let pn =this.parentNode; //parentNode : 부모노드, div(p(txt,btn)) => p를 대상으로 해서 지우겠다 
+        pn.remove();
+    }
+
+    let ptag = document.createElement('p');
+    //p태그 생성 후 생성한 텍스트노드를 붙임
+    ptag.appendChild(txt);
+    //p태그 생성 후 생성한 요소노드(element node)를 붙임
+    ptag.appendChild(btn);
+
+    document.getElementById('rst2').appendChild(ptag);
+}
+</script>
+<style>
+</style>
+</head>
+<body>
+
+    <button type="button" onclick="proc1()">추가</button>
+    <button type="button" onclick="proc1()">삭제</button>
+    <div class="" id="rst1"></div>
+
+
+</body>
+</html>

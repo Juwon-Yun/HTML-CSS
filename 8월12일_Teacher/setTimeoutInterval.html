@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/outStyle.css">
+<style>
+div {
+	border : 1px solid green;
+	height : 100px;
+	border-radius : 20px;
+}
+</style>
+<script>
+
+let divStyle=function(){	//표현식 함수 선언을 우선해줄것
+	let rst1 = document.getElementById('rst1');
+	rst1.style.background = "orange";
+}
+
+setTimeout(divStyle, 1000); 	//선언함수에서 hoisting 발생
+
+
+let proc1=function(){
+	
+	setTimeout(function(){
+		let rst1 = document.getElementById('rst1');
+		rst1.style.background = "lime";
+	}, 2000);//2초 후에 div영역 배경색 바뀜
+}
+
+let okbtn = ""; 	//전역변수 선언하고 proc3에서 사용할 예정
+let a = "";			//전역변수 선언하고 proc3에서 사용할 예정
+
+//람다함수(화살표함수)
+proc2=(btn)=>{ // 람다함수는 this를 사용할 수 없다 (자신을 가르키므로) 하지만 매개변수로 객체를 받아서 사용은 가능
+
+	okbtn = btn;
+	
+	//스타일로 버튼 처리
+// 	btn.style.display = "none";
+	//속성으로 버튼 처리
+	btn.setAttribute('disabled',true);
+	
+	let rst2 = document.getElementById('rst2');
+	a = setInterval(function(){
+		
+		console.log("a >> " + a);
+		
+		//랜덤색상만들기
+		let cr = parseInt(Math.random()*256);
+		let cg = parseInt(Math.random()*256);
+		let cb = parseInt(Math.random()*256);
+		
+		//10진수 색상 표현
+// 		rst2.style.background = "rgb(" + cr + "," + cg + "," + cb + ")";
+// 		rst2.style.background = `rgb(${cr},${cg},${cb})`;	//백틱 사용
+		
+		//16진수 색상 표현
+		cr = cr.toString(16);
+		cg = cg.toString(16);
+		cb = cb.toString(16);
+		
+		rst2.style.background = `#${cr}${cg}${cb}`;	//백틱 사용
+	}, 1000);
+}
+
+function proc3(){
+	
+// 	okbtn.style.display = "inline";
+// 	okbtn.setAttribute('disabled',false);//기능안먹힘
+	okbtn.removeAttribute('disabled');
+	clearInterval(a);
+}
+
+</script>
+</head>
+<body>
+  <input type="button" value="setTimeout" onclick="proc1()">
+  <div id="rst1">
+  	setTimeout(fn, ms) : ms에 지정된 시간이 경과하면 배경색 바꾸기
+  </div>
+  
+  
+<pre>
+	setInterval버튼을 연속해서 눌렀을 때, 객체가 여러개 생성되면서 종료시켜야 할 객체를 잃어버리게 된다
+	때문에, 버튼을 연속으로 누를 수 없는 기능을 설정한다
+	1. 확인버튼을 보이지 않게 만든다 - display : none  >> 스타일 설정
+	2. 확인버튼을 클릭할 수 없게 만든다 - setAttribute('disabled','disabled') >> 속성 설정
+</pre>  
+  
+  <input type="button" value="setInterval" onclick="proc2(this)">
+  <input type="button" value="clearInterval" onclick="proc3()">
+  <div id="rst2">
+  	setInterval(fn, ms) : ms에 지정된 시간이 경과할 때마다 배경색 바꾸기
+  </div>
+</body>
+</html>

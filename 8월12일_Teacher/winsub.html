@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/outStyle.css">
+<script>
+function sub(){
+	let nameVal = document.getElementById('name').value;
+	
+	if(nameVal.trim().length < 1){//앞뒤공백제거 후 길이체크하여 입력여부를 확인
+		alert("이름을 입력하세요!!");
+		return;//if문에 걸렸을 경우, 아래 문장을 실행하지않고 위 코드로 다시 돌아감
+	}
+	let res = nameVal + "님 환영합니다";
+	
+	//부모창으로 내용 출력
+	opener.document.getElementById('rst1').innerHTML = res;
+}
+</script>
+</head>
+<body>
+  <h4>
+  	이름 입력 후 확인버튼을 누르면 부모창에 작성한 이름을 출력<br>
+  	(부모창을 나타내는 속성 : opener)
+  </h4>
+  <form>
+    이름 : <input id="name" required> <!-- required : 필수입력을 위한 속성 -->	
+    <input type="button" value="확인" onclick="sub()">
+  </form>
+  
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+    alert("안녕ㅎ");
+    // 이중 하나를 써서 document를 준비시킨다.
+    $(document).ready(function(){
+        alert($('d1').html());
+    });
+
+    // javascript에서 window.onload = function(){}과 같다 (문서를 모두 준비시키고 실행하여 오류를 방지) == $(document).ready(funtion(){})
+
+    // $(function(){
+
+    // });
+
+    // jQuery(document).ready(function(){
+
+    // });
+    // jQuery(function(){
+
+    // });
+</script>
+<style>
+</style>
+</head>
+<body>
+    <div class="" id="d1">영역이예요</div>
+</body>
+</html>

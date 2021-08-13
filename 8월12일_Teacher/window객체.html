@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/outStyle.css">
+<script>
+
+let pop = "";	//전역변수 선언
+
+let proc=function(){
+// 	window.open();
+	pop = open("winsub.html","_blank","width=200 height=200 top=20 left=100");
+}
+let proc1=function(){
+ 	pop.close();
+}
+</script>
+</head>
+<body>
+  <input type="button" value="창 오픈" onclick="proc()">
+  <div id="rst1"></div>
+  <input type="button" value="창 클로즈" onclick="proc1()">
+</body>
+</html>

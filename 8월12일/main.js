@@ -6,7 +6,7 @@ let pdfDoc  = null,
     pageNumIsPending = null;
 
 const scale = 1.5,
-    canva1s = document.querySelector('#pdf-render');
+    canvas = document.querySelector('#pdf-render');
     let ctx = canvas.getContext('2d');
 
 //  Render the page
@@ -74,6 +74,7 @@ pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
 
     renderPage(pageNum)
 })
+    // Error
     .catch(err =>{
         // Display error
         const div = document.createElement('div');
