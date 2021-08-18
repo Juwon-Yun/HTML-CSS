@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        $( 'input[value="html"] ').on('click', function(){
+            let res = "";
+
+            //html() - 첫 번째 요소만 대상으로 가져온다
+            // console.log($('p').html());
+            // console.log($('p').text());
+            
+            //반복문 - each 을 사용해서 html의 모든 값을 가져오기
+            $('p').each(function(i,v){
+                //인덱스 만큼 돌려준다
+
+                //each문 안에서 사용하는 this는 index별 값을 순차적으로 반환한다.
+                // res += $(this).html() + "\n";
+                
+
+                res += $('p').eq(i).html()+"\n";
+                
+                // index를 지정하지 않는 html()은 첫번째 항목만을 반환한다.
+                // res += $('p').html() + "\n"
+            });
+            console.log(res);
+        
+        });
+
+    });
+</script>
+<style>
+</style>
+</head>
+<body>
+    <div>
+        <h3>대상 요소 내용 가져오기</h3>
+
+        html() : 태그 포함해서 내용 가져오기 - 첫 번쨰 요소를 대상으로 한다 <br>
+        때문에, 전체 P 태그를 가져오기 위해서 반복문 사용 - each <br>
+        <br>
+        text() : 태그를 포함하지 않고 내용 가져오기<br>
+
+        <br>
+
+        <p>1 <span> 홍길동 </span></p>
+        <p>2 <span> 고길동 </span></p>
+        <p>3 <span> 도우너 </span></p>
+
+        <input type="button" value="html">
+        <input type="button" value="text">
+    </div>
+</body>
+</html>

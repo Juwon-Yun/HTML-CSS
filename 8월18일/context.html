@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+$(function(){
+    //전체 p를 선택
+    $('p').css('background', 'cyan');
+
+    $('div').on('click', function(){
+        let cr = Math.floor(Math.random() * 256);
+        let cg = Math.floor(Math.random() * 256);
+        let cb = Math.floor(Math.random() * 256);
+
+        //컨텍스트 this : div안의 p를 선택
+        $('p', this).css('color', `rgb(${cr},${cg},${cb})`);
+    });
+
+    $('#btn').on('click', function(){
+        let plist = document.getElementsByTagName('p');
+
+        plist[0].style.backgroundColor = 'yellow';
+    });
+
+});
+</script>
+<style>
+</style>
+</head>
+<body>
+    <pre>
+        context : 선택자를 검색할 범위 설정
+        생략시 문서 전체에서 검색
+        $('선택자', context)
+    </pre>
+
+    <input type="button" id="btn" value="확인">
+    <p>(p)함박눈이 펑펑 내려오</p>
+    <p>(p)무궁화 꽃이 피었습니다</p>
+
+    <div id="result1">
+        <p>result1번 (div)속에 있는 p태그 입니다</p>
+    </div>
+
+    <div>
+        <p>(div>p)나리나리 개나리</p>
+    </div>
+
+</body>
+</html>

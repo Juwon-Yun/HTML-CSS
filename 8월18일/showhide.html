@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+    // t: onclick을 통해 전달받은 인자 this를 t라는 변수로 받음
+    
+    //javascript객체 (dom객체)로서 기존 스타일 적용방식 사용
+    // t.style.display = "none";
+
+    // dom객체는 jquery객체로 변환시켜야 jquery 함수를 적용할 수 있다.
+    function proc1(t){
+        // $(t).hide();
+
+        // t.style.color = 'green';
+        $(t).css('color', 'red');
+    }
+
+    //문서가 모두 로딩되면 실행한다.
+    $(document).ready(function(){
+
+        $('#jqd h2').on('click', function(){
+            $(this).hide();
+            
+            //h2요소가 없을 때 보이기버튼을 보여줌
+            if($('#jqd h2: visible').length > 1){
+                $('#jqd button').show();
+            }
+        });
+        $('#jqd button').on('click', function(){
+            //버튼을 눌렀을 때 h2요소가 보여짐
+            $('#jqd h2').show();
+            $(this).hide();
+        });
+    });
+</script>
+<style>
+    button{
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+    <pre>
+        javascript방식으로 proc1()함수 호출
+        &lt;h2> onclick="proc1(this)">클릭하면 사라집니다&lt;/h2>
+        함수의 매개변수로 this 전달
+    </pre>
+
+    <h2 onclick="proc1(this)">클릭하면 사라집니다1</h2>
+    <h2 onclick="proc1(this)">클릭하면 사라집니다2</h2>
+    <h2 onclick="proc1(this)">클릭하면 사라집니다3</h2>
+    <h2 onclick="proc1(this)">클릭하면 사라집니다4</h2>
+    <h2 onclick="proc1(this)">클릭하면 사라집니다5</h2>
+    <h2 onclick="proc1(this)">클릭하면 사라집니다6</h2>
+
+<pre>
+    jQuery방식으로 이벤트 적용 - script에서 click이벤트 적용
+    h2항목이 모두 사라졌을 때 보이기 버튼이 나타난다 - 보여지는 h2의 갯수로 비교
+</pre>
+    <div id="jqd">
+        <h2>클릭하면 사라집니다1</h2>
+        <h2>클릭하면 사라집니다2</h2>
+        <h2>클릭하면 사라집니다3</h2>
+        <h2>클릭하면 사라집니다4</h2>
+        <h2>클릭하면 사라집니다5</h2>
+        <button type="button">보이기</button>
+    </div>
+</body>
+</html>
