@@ -4,30 +4,6 @@
 <meta charset="utf-8">
 <title>Insert title here</title>
 <link rel = "styleSheet" href="../css/outstyle.css">
-<script>
-    // 직사각형
-    const rectangle = document.querySelector('.rectangle');
-
-    window.onload = function(){
-        // 버튼 클릭시 onClickButton() 실행
-        document.querySelector('.button').addEventListener('click', onClickButton);
-    }
-    
-    function onClickButton(){
-        // 0~359 사이 임의의 수를 가져오기
-        const randomHue = Math.trunc(Math.random() * 360);
-        
-        // 그라데이션의 시작과 끝 색상을 결졍
-        const randomColorStart = `hsl(${randomHue}, 100%, 50%)`;
-        const randomColorEnd = `hsl(${randomHue + 40}, 100%, 50%)`;
-        
-        //직사각형의 그라데이션 처리 변수
-        rectangle.style.setProperty('--start', randomColorStart);
-        rectangle.style.setProperty('--end', randomColorEnd);
-    }
-
-
-</script>
 <style>
     .rectangle{
         background-color: black;
@@ -43,5 +19,30 @@
 <body>
     <button class="button">색상 변경</button>
     <div class="rectangle"></div>
+    
+    <script>
+        // 직사각형
+        const a = document.querySelector('.rectangle');
+    
+        window.onload = function(){
+            // 버튼 클릭시 onClickButton() 실행
+            document.querySelector('.button').addEventListener('click', onClickButton);
+        }
+        
+        function onClickButton(){
+            // 0~359 사이 임의의 수를 가져오기
+            const randomHue = Math.trunc(Math.random() * 360);
+            
+            // 그라데이션의 시작과 끝 색상을 결졍
+            const randomColorStart = `hsl(${randomHue}, 100%, 50%)`;
+            const randomColorEnd = `hsl(${randomHue + 40}, 100%, 50%)`;
+            
+            //직사각형의 그라데이션 처리 변수
+            a.style.setProperty('--start', randomColorStart);
+            a.style.setProperty('--end', randomColorEnd);
+        }
+    
+    
+    </script>
 </body>
 </html>

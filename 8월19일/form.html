@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+
+</script>
+<style>
+</style>
+</head>
+<body>
+    <form action="input.jsp" method="post">
+        <input type="text" name="input" id="">
+        <input type="submit" name="" id="" value="안녕하세요">
+    </form>
+    <br><br><br>
+
+    <form action="input.jsp" method="GET"> get방식(url확인) <br>
+        이름: <input type="text" name="" id=""> <br>
+        학번: <input type="text" name="" id="" size="10">
+        <input type="submit" name="" id="" value="전송">
+    </form>
+   
+    <form action="input.jsp" method="POST"> post방식(url확인) <br>
+        이름: <input type="text" name="" id=""> <br>
+        학번: <input type="text" name="" id="" size="10">
+        <input type="submit" name="" id="" value="전송">
+    </form>
+    <br>
+    이름: <input type="text" name="name" id=""><br>
+    학번: <input type="text" name="number" id="" size="10"><br>
+    <br>
+    패스워드: <input type="password" name="" id="">
+    <br>
+    성별: <input type="radio" name="" id="">남성 <input type="radio" name="" id=""> 여성
+    <br>
+    과일선택: <input type="checkbox" name="" id="">Apple <input type="checkbox" name="" id=""> Grape <input type="checkbox" name="" id=""> Orange
+    <br>
+    <br>
+    <form action="" enctype="multipart/form-data">
+        <input type="file" accept="image/jpg, image/gif" name="" id="">
+    </form>
+    <br>
+    <form action="input.jsp" method="GET">
+        물품가격: <input type="text" name="" id=""><br>
+        수량: <input type="text" name="" id=""><br>
+        <button onclick="alert('10000원입니다')">계산</button>
+    </form>
+    <br>
+    
+    <form action="input.jsp" method="POST">
+    사용자아이디: <input type="text" name="" id=""><br>
+    <button type="submit">제출</button>
+    <button type="reset">초기화</button>
+    </form>
+    <br>
+
+    <form action="input.jsp" method="POST">
+        아이디: <input type="text" name="" id="" size="15"><br>
+        <img src="../images/sponge.jpg" width="50" height="50" alt="" onclick="">
+    </form>
+    <br>
+    <input type="hidden" name="" id="">
+    <div>위에 Hidden 타입 input있어요</div>
+    <br>
+
+    <form action="">
+        <fieldset>
+            <legend>인적사항입력</legend>
+            이름: <input type="text" name=""   id=""> <br>
+            전번: <input type="text" name=""   id=""> <br>
+            주소: <input type="text" name=""   id=""> <br>
+        </fieldset>
+    </form>
+    <br>
+    이메일: <input type="email" name="" id="">
+    <br>
+
+    신발사이즈<br>
+    <input type="number" min="230" max="320" step="10" value="250" id="" width="50">
+    <br>
+    <br>
+
+    <form action="MVC   .html" method="POST"> 
+        <fieldset >
+            <legend>이메일 전송화면</legend>
+            <br>
+            이름: <input type="text" name="" id="">
+            <br>
+            이메일: <input type="email" name="" id="">
+            <br>
+            비밀번호: <input type="password" name="" id="">
+            <br>
+            내용
+            <br>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <br>
+            <button type="submit">제출</button>
+            <button type="reset">재설정</button>
+
+        </fieldset>
+    </form>
+
+
+
+
+</body>
+</html>

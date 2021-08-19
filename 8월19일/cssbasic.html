@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+
+</script>
+<style>
+</style>
+</head>
+<body>
+    <pre>
+- css 개요
+Cascading Style Sheet의 약어
+html의 디자인(시각적 요소)를 정해줄 때 사용
+
+- 작성법
+선택자 {
+  스타일: ;
+}
+
+선택자를 통해서 어떠한 요소에 스타일을 줄것인지를 선택해 준다
+{} 중괄호를 통해 중괄호 안에 스타일값들을 작성해준다
+스타일 : 어떠한 스타일을 줄것인지 설정을 해주고 스타일 작성 후에는 꼭 ;세미콜론이 필요하다
+
+- selector
+1. Id : #(id name) 
+2. Class : .(class name) 
+3. Tag(type) : tag name 
+4. Attribute
+  - [attr]
+  - [attr="value"]
+  - [attr~="value"] 속성값이 정확히 value
+  - [attr^="value"] 속성값이 value로 시작
+  - [attr$="value"] 속성값이 value로 끝
+  - [attr*="value"] 속성값에 value가 포함
+  - [attr|="value"] 속성값이 value로 시작하거나 정확하게 value와 일치할때
+5. Universal : *
+6. Combinator
+  - Descendant 자손 (공백)
+  - Child 자식 ( > 꺽쇠)
+  - Adjacent Sibling 인접 형제 +
+  - General Sibling 일반 형제 ~
+7. Pseudo
+  - :link  
+  - :visited
+  - :active
+  - :hover
+  - :focus
+8. Structural Pseudo
+  - ::nth-child(n, even, odd)
+  - ::first-child
+  - ::last_child
+
+* ::after, ::before
+선택자 뒤, 또는 앞에 요소를 추가
+콜론은 두개를 붙혀주는것이 css3문법
+
+* 최근 트렌드는 클래스명하나만 작성해서 불러온다
+예전 > body .wrap form .user-id
+최근 > .user-id
+
+- 단위
+  px : 픽셀단위
+  em : 부모요소의 font-size를 기준으로 입력해 준 값만큼 곱해진다
+  rem : html태그의 font-size를 기준으로 입력해 준 값만큼 곱해진다
+  % : 퍼센트 단위
+  vh : 현재 보고있는 디스플레이의 최대 세로값을 100vh로 잡는다.(퍼센트랑 비슷)
+  vw : 현재 보고있는 디스플레이의 최대 가로값을 100vw로 잡는다.
+
+- Box Model
+html의 모든 요소들은 네모형태의 박스로 구성되어있다
+모든 요소는 <margin < border < padding <content> padding > border >margin>
+이렇게 구성이 되어있다
+
+- block
+  화면에 보이는 가로넓이 만큼 공간을 차지한다
+  가로, 세로, 패딩, 마진값을 모두 사용 가능하다
+
+- inline
+  자신의 content만큼만 공간을 차지한다
+  가로, 패딩(가로), 마진(가로) 값만 사용이 가능하다
+
+- inline-block
+  inline과 block의 특성을 모두 가지고있다
+  자신의 content만큼의 공간을 가지며 가로, 세로, 패딩, 마진의 모든 값 적용이 가능하다
+
+- display
+  요소의 박스 모델 속성을 변경해 줄 수 있다
+
+- margin
+  외부 여백
+  content와 content사이의 공간(여백)을 줄 수 있다
+  margin: 10px;
+  단축속성으로 많이 사용되며
+  - 1개 사용 : 상하좌우 모두에 동일한 값이 적용
+  - 2개 사용 : 상하, 좌우 에 값 적용
+  - 3개 사용 : 상, 좌우, 하 에 값 적용
+  - 4개 사용 : 상, 우, 하, 좌 에 각각 값 적용(시계방향으로 외우기)
+  마이너스값도 사용 가능
+  상하단 마진 사용시 상쇄 주의
+
+- padding
+  내부 여백
+  content의 내부 공간을 줄때 사용한다
+  padding: 10px;
+  이또한 단축속성으로 사용되며 margin과 동일하게 적용된다
+  마이너스값은 사용 불가능
+
+- border
+  content의 테두리를 줄 수 있다.
+  border: 1px solid red;
+  단축속성으로 많이 사용되며
+  선의 굵기, 선 종류, 선 색의 순서로 입력이 가능하다
+  * border-radius: 10px;
+    테두리의 꼭짓점에 round를 줄 수 있다
+
+- box-sizing
+  디폴트가 content-box이다
+  css로 스타일 작성시에 크기가 생각한것과 다르게 잡히는 경우가 있을텐데 content 기준으로 크기가 잡혀있어서 그렇다. content + padding + border로 잡혀서
+  div {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border: 10px solid red;
+  }
+  위와 같이 작성했을때 가로, 세로는 140px씩 잡혀있을것이다.
+  만약 요소의 모든 크기를 100px로 잡아주고싶다면 
+  div {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    border: 10px solid red;
+  }
+  위와 같이 작성을 해줘야 할 것이다.
+  하지만 box-sizing이라는 속성을 border-box로 지정해주면 자동으로 잡아준다.
+  content-box 속성으로 디자인을 할 경우 불편할 상황이 많이 생기므로 상단에 universal selector로
+  * {
+    box-sizing: border-box;
+  }
+  를 작성해주고 시작하면 편할것이다.
+
+- 가로 세로
+width: px, em, rem, %, vw등 사용 가능
+height: px, em, rem, %, vw등 사용 가능
+
+- 글씨에 사용되는 스타일
+  - font
+    font-size: 20px; 폰트의 사이즈 (px, em, rem, % 등 사용가능)
+    font-family: 'Courier New', Courier, monospace; 폰트의 서체
+    font-weight: bold; 폰트의 굵기 (100~900, bold등 사용 가능) 
+    font-style: italic; 기울임, 기본속성 등을 입력해줄 수 있다
+    이정도가 많이 사용되는 스타일 속성이다.
+
+  -text
+    color: red; 글씨의 색을 정해줄 수 있다 (rgb, hex code, color name등 사용)
+    text-align: center; 글씨의 정렬 기준을 정해줄 수 있다 (left, right, center등 사용)
+    text-decoration: underline; 글씨의 꾸밈선등을 추가할수 있다(underline등 사용)
+    text-shadow: 5px 5px 5px black; 
+      글씨의 그림자를 설정해줄 수 있다(기입 순서대로 x축 y축 blur값 색상) 4가지 값을 필수로 입력해야하며 x축은 오른쪽, y축은 아래로 이동하는 이동값이다
+
+- background
+  background-color: black; 배경의 색상을 정해줄 수 있다
+  background-image: url(''); 배경에 이미지를 추가할 수 있다
+  background-repeat: no-repeat; 배경에 이미지 추가시 반복할 것인지 설정
+  background-size: cover; 배경이미지의 사이즈 값 설정
+  background-position: 50px; 배경이미지의 위치 설정
+
+- outline
+  input등과 같이 입력을 받을수 있는 요소들이 focusing됬을때 강조 선을 이야기 한다
+
+-cursor
+  해당 요소에 마우스포인터가 접근했을때 어떤 모양으로 변경할지 정해줄 수 있다
+
+- line-height
+  글자의 높이를 지정해 줄 수 있다.
+  상, 하단이 동일한 비율로 올라간다(폰트에 따라서 약간의 편차가 있을수도 있다)
+
+- letter-spacing
+  글자 사이의 간격을 설정해 줄 수 있다.
+
+- overflow
+  px, em, rem등 고정값으로 크기를 정해준 요소 안의 내용이 넘칠때 처리를 어떻게 해줄지 작성해줄 수 있다
+  hidden : 숨김
+  scroll : 스크롤 생김(무조건 스크롤 생김)
+  auto : 넘치지 않으면 스크롤 안생김
+
+- position
+  1. static : 모든 요소들의 기본값
+  2. relative : 요소를 띄워서 위치를 이동시킬수 있다. 요소의 원래 자리를 다른 요소들이 기억할 수 있다
+  3. absolute : 부모요소에 relative, absolute등이 있어야하며 부모요소를 기준으로 위치를 움직일수 있다. 주변의 요소들이 absolute요소를 인지하지 못해서 공간이 겹치는 현상이 일어난다
+  4. fixed : 특정 위치에 고정함으로서 스크롤이 되어도 눈에 보이는 위치에 고정된다
+  5. sticky : 특정 위치에 고정되있다가 스크롤이 되어 상단 혹은 하단과 만났을때 상,하단에 붙어서 이동한다
+
+  top, left, right, bottom속성을 줄 수 있으며 일반적으로 위치를 지정할때는
+  top, left / top, right / bottom, left / bottom, right
+  와 같이 사용이 되며
+  top과 bottom을 같이 사용하면 길이가 늘어난다
+  ex > top : 10px; 이 코드는 상단에서 10px 밑에 위치시킨다는 뜻으로 4가지 속성 모두 이렇게 사용할 수 있다
+
+- 변수
+  css에서도 변수를 설정해줄 수 있다
+  보통 페이지 디자인을 할때 폰트 사이즈, 색상등을 정해놓고 사용을 하는 경우가 많은데 상단에 변수를 선언하고
+  하단에 스타일을 작성할때 변수를 사용해서 작성을 해준다
+  유지보수를 위해서 해두면 좋다
+  선언
+  :root {
+    --변수명 : 속성값;
+  }
+  사용
+  선택자 {
+    스타일 : var(--변수명);
+  }
+
+
+
+
+
+
+- flex box
+  
+
+
+- display: flex;
+- flex-direction: row(default) | row-revers | column | column-revers
+- justify-content: flex-start | flex-end | center | space-between | space-around
+- align-items: flex-start | flex-end | center | space-between | space-around
+- flex-wrap: nowrap(default) | wrap | wrap-revers
+    </pre>
+</body>
+</html>
