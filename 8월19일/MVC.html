@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+
+</script>
+<style>
+</style>
+</head>
+<body>
+    <pre>
+MVC(Model, View, Controller) 패턴
+
+Model = data를 구성하는 모든 로직
+View = 사용자에게 보여지는 화면
+Controller = 사용자가 요청한 작업을 시작하게하는 시작점 혹은 마침표 역할
+
+	MVC패턴의 비지니스로직에 사용되는 클래스들
+	1) VO, DTO => Data를 저장하는 역할만 하는 클래스
+		(VO => Value Object, 
+        DTO => Data Transfer Object)
+		=> DB테이블에서 1개의 레코드가 저장될 클래스를 말한다.
+	
+	2) DAO => SQL문을 DB서버에 보내서 그 결과를 얻어오는 역할을
+		  수행하는 클래스
+		  (DAO => Data Access Object)
+
+	3) Service => 일을 수행하는 중간 관리자 같은 역할을 수행하는 클래스
+	          --> Service는 일이 있으면 그 일에 필요한 DAO를 호출해서 일을
+		  처리한 후 처리된 결과를 Controller에게 전달한다
+
+	4) Controller => 비지니스 로직의 시작이 시작되는 곳으로 사용자의 요청에
+		맞는 일을 만들어서 Service에게 일을 시키고, Service가 보내온 
+		처리 결과를 화면 등에 반영시키는 역할을 수행한다.
+	
+             ( -> : 메소드의 매개변수)
+    Controller -> Service -> DAO -> DB서버 
+             ( <- : 메소드의 반환값)
+	Controller <- Service <- DAO <- DB서버
+	            ↓
+	각 영역을 이동할 때 가져갈 자료는 보통 VO나 자바의 Collection객체에
+	담아서 보낸다.
+              
+    (전체출력 => 매개변수는 없지만 반환값은 List(VO객체가 저장된)에 담아서 반환한다.)
+    
+    </pre>
+</body>
+</html>

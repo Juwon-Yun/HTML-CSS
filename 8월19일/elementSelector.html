@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>elementSelector</title>
+    <!-- <link rel = "styleSheet" href="../css/outstyle.css"> -->
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+
+            // h2 a  띄어쓰기 => 자식요소만 선택
+            jQuery('h2 a').css('background', 'yellow');
+            // > => h2의 자식 a태그
+            $('h2 > a').css('border', '5px solid black');
+            $('h2 > span').css('border', '5px solid red');
+
+            $('input[value="형제선택~"]').on('click', function () {
+
+                //h3다음의 모든 형제(~) 배경색 변경, 길이지정, 가운데 정렬
+                $('#h3~p').css('background', 'pink')
+                    .css('width', '100px')
+                    .css('textAlign', 'center');
+            });
+
+            //h3 다음의 첫번째 형제(+) 글자를 굵고 크게 : font-weight = bold, font-size : 1.5em;
+            $('input[value="형제선택+"]').on('click',function(){
+                $('#h3+p').css('font-weight','bold')
+                            .css('font-size', '1.5em');
+            });
+
+        });
+    </script>
+    <style>
+        /* link 태그 대신에 사용할 수 있다(Style태그 안에서) */
+        @import url("../css/outStyle.css");
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>자식요소 : E1>E2, 후손요소(자식을 포함) : E1 E2</h3>
+        <h2>
+            문단안에 <a>링크</a> 태그가 있다<br><br>
+            두번째 <span><a href="" id="span의 자식이며 h2의 자손이다">링크</a></span>는 자손이다
+        </h2>
+    </div>
+    <div class="box">
+        <h3>
+            h3 다음의 모든 형제 배경색 변경, 길이 지정, 가운데 정렬<br>
+            h3 다음의 첫번째 형제 글자를 굵고 크게 : font-weight
+        </h3>
+
+        <p>형제선택자</p>
+        <h3 id="h3">꼬마버스 타요 가족을 소개합니다</h3>
+        <p>타요</p>
+        <p>로기</p>
+        <span>타타</span>
+        <p>라니</p>
+        <p>가니</p>
+        <!-- ~ => this 전체 -->
+        <input type="button" value="형제선택~">
+        <!-- + => this 다음에 오는 형제만 -->
+        <input type="button" value="형제선택+">
+
+    </div>
+</body>
+
+</html>

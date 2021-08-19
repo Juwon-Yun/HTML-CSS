@@ -5,3 +5,10 @@ pre{
 	color: black;
 	font-size: 1.5em;
 }
+
+/*box 다음에 뛰어쓰기해야함 */
+.box {
+	border : 2px solid green;
+	margin: 10px;
+	padding: 10px;
+}

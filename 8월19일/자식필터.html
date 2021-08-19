@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+
+    $('li').first().css('background', 'yellow');
+    $('li:first-child').css('border', '5px solid red');
+
+    $('li').last().css('background', 'green');
+    $('li:last-child').css('border', '3px solid blue');
+
+});
+</script>
+<style>
+</style>
+</head>
+<body>
+    <div>
+        <h4>음식 인기순위</h4>
+        <ol>
+            <li>치킨</li>
+            <li>중식</li>
+            <li>피자</li>
+            <li>족발보쌈</li>
+            <li>분식</li>
+        </ol>
+    </div>
+    <br><br>
+    <div>
+        <h4>선호 치킨브랜드</h4>
+        <ol>
+            <li>교촌</li>
+            <li>굽네</li>
+            <li>BHC</li>
+            <li>BBQ</li>
+            <li>네네</li>
+        </ol>
+    </div>
+</body>
+</html>

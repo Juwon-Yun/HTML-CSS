@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+$(function(){
+
+    //입력양식(form) 선택자
+    //모든 input 타입을 선택
+    $(':input').css('background', 'lightgrey').css('border', '3px solid red');
+
+    //input type button인 요소의 배경색
+    //속성선택자로 지정시 $('input[type=button]')
+    $('input:button').css('background', 'yellow');
+    
+    //Button 요소와 input요소의 type이 button인 요소 배경색 - lightblue
+    //속성선택자로 지정시 $('button[type=button]')
+    $(':button, :input').css('background', 'lightblue');
+    
+    //type이 submit인 요소 배경색 - green
+    //속성선택자로 지정시 $('input[type=submit]')
+    $(':submit').css('background', 'green');
+    
+    //type이 reset인 요소 - pink
+    //속성선택자로 지정시 $('input[type=reset]')
+    $(':reset').css('background', 'pink');
+    
+    //type이 text, password인 요소의 테두리 - blue;
+    //속성선택자로 지정시 $('input[type=text], input[type=text]')
+    $(':text, :password').css('border', '3px solid blue');
+    
+    //type이 file, image인 요소 테두리 - purple
+    //속성선택자로 지정시 $('input[type=file], input[type=image]')
+    $(':file, :image').css('border', '3px solid purple');
+
+
+
+});
+</script>
+<style>
+</style>
+</head>
+<body>
+    <div class="box">
+        <form action="">
+            Text : <input type="text" name="id"><br>
+            Password : <input type="password" name="pass" id=""> <br>
+            Radio :
+            <input type="radio" name="radioA" id="A">A
+            <input type="radio" name="radioB" id="B">B
+            <br>
+
+            checkbox :
+            <input type="checkbox" name="checkboxes" id="chk1" value="1">1
+            <input type="checkbox" name="checkboxes" id="chk1" value="2">2
+            <br>
+
+            TextArea<br>
+            <textarea name="" id="myTextArea" cols="20" rows="5"></textarea>
+            <br>
+
+            Image : <br>
+            <input type="image" src="../images/coffee.jpg" width="100" height="100" name="" id="">
+            <br>
+
+            File : <br>
+            <input type="file" name="" id="">
+            <br>
+            <br>
+
+            Buttons : <br>
+            <button>전송</button>
+            <button type="button">Normal</button>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+            <br>
+            <br>
+            
+            <input type="button" value="일반버튼" name="" id="">
+            <input type="submit" value="전송버튼" name="" id="">
+            <input type="reset" value="초기화버튼" name="" id="">
+
+        </form>
+    </div>
+</body>
+</html>

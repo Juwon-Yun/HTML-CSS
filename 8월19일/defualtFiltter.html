@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        // $('li:first').css('background', 'yellow');
+        $('li').first().css('background', 'yellow');
+
+        // $('li:last').css('background', 'yellow');
+        $('li').last().css('background', 'yellow');
+        
+        // $('li:eq(5)').css('color', 'red');
+        $('li').eq(5).css('color', 'red');
+
+        // $('li:lt(4)').css('fontSize', '1.5em').css('fontWeight', 'bold');
+        // $('li:gt(4)').css('fontSize', '1.5em').css('fontWeight', 'bold');
+
+        // start부터 적용하거나 start, end를 적용할때는 end는 제외
+        $('li').slice(4, 7).css('fontSize', '2em').css('color', 'gold');
+
+        //even은 짝수이지만 index는 0번부터 시작, index 0, 2, 4, 6, 8
+        $('.box tr:even').css('background', 'gray');
+
+        $('.box tr:odd').css('background', 'pink');
+
+        // 같은결과 
+        // $('#box2 tr').first().css('background', 'teal').css('color', 'white').css('fontWeight', 'bold').css('fontSize', '1.4em');
+        $('#box2 tr').first().css({'background' : 'teal', 'color' : 'white', 'fontWeight': 'bold', 'fontSize' : '1.4em'});
+
+    });
+</script>
+<style>
+    td{
+        width: 100px;
+        height: 30px;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <div class="box" id="box1">
+        <h3>
+            기본필터(first, last, eq, gt, lt, even, odd, not) <br>
+            index : 0부터 시작, even : 0, 2, 4, 6, 8... / odd : 1, 3, 5, 7, 9...
+        </h3>
+        <ul>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+            <li>four</li>
+            <li>five</li>
+            <li>six</li>
+            <li>seven</li>
+            <li>eight</li>
+            <li>nine</li>
+        </ul>
+    </div>
+
+    <div class="box" id="box2">
+        <h3>tr:odd / tr:even</h3>
+        <table border="1">
+            <tr>
+                <td>one</td>
+                <td>even(0)</td>
+            </tr>
+            <tr>
+                <td>two</td>
+                <td>odd(1)</td>
+            </tr>
+            <tr>
+                <td>three</td>
+                <td>even(2)</td>
+            </tr>
+            <tr>
+                <td>four</td>
+                <td>odd(2)</td>
+            </tr>
+            <tr>
+                <td>five</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
