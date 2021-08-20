@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        $('input:button').on('click', function(){
+            let chkVal = " ";
+            $(':checkbox:checked').each(function(i,v){
+                chkVal += $(this).val()+" ";
+            });
+            
+            $('#d1 div').html(chkVal);
+
+            //서버 전송을 위한 action과 method 설정
+            // $('#d1 form').attr('action', 'test.jsp?chkVal=').attr('method', 'get');
+            // $('#d1 form').attr({'action' : 'test.jsp', 'method' : 'get'});
+            $('#d1 form').attr({'action' : 'test.jsp', 'method' : 'post'});
+            $('#d1 form').submit;
+        });
+
+        $('#d2 select').on('change', function(){
+            let op = "";
+            $('option:selected').each(function(){
+                op += $(this).val() + "  ";
+            });
+            $('#d2 div').html(op);
+        });
+    });
+</script>
+<style>
+</style>
+</head>
+<body>
+    <h3>선택한 checkbox 값 전송하기</h3>
+    <div id="d1">
+        <form action="">
+            취미 : 
+            <input type="checkbox" name="hobby" value="여행" id="" checked>여행
+            <input type="checkbox" name="hobby" value="독서" id="">독서
+            <input type="checkbox" name="hobby" value="영화감상" id="">영화감상
+            <input type="checkbox" name="hobby" value="낚시" id="" checked>낚시
+            <input type="checkbox" name="hobby" value="바둑" id="">바둑
+            <br><br>
+            <input type="button" value="전송" name="" id="">
+        </form>
+        <div></div>
+    </div>
+    <br><br>
+    <h3>선택한 option값 가져오기</h3>
+    <div id="d2">
+        <form action="">
+            <select name="" id="" multiple size="6">
+                <option value="">개나리</option>
+                <option value="">진다래</option>
+                <option value="" selected>민들레</option>
+                <option value="">벚꽃</option>
+                <option value="">목련</option>
+                <option value="" selected>철쭉</option>
+            </select>
+        </form>
+    </div>
+    <div></div>
+</body>
+</html>
