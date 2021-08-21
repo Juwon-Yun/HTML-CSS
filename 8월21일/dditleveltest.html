@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+</script>
+<style>
+</style>
+</head>
+<body>
+    <div class="body_container">
+        <div class="btn-wrap">
+            <input type="button" value="버튼1">
+            <input type="button" value="버튼2">
+            <input type="button" value="추가">
+            <input type="button" value="삭제">
+        </div>
+        <div class="box">
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>번호</td>
+                <td>이름</td>
+                <td>주소</td>
+                <td>전화번호</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="num"></td>
+                <td>이순신</td>
+                <td>대전</td>
+                <td>010-1111-1111</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    const firstBtn = document.querySelector('[value="버튼1"]');
+    const secoundBtn = document.querySelector('[value="버튼2"]');
+    const thirdBtn = document.querySelector('[value="추가"]');
+    const forthBtn = document.querySelector('[value="삭제"]');
+    const tHead = document.querySelector('thead tr');
+    const tbody = document.querySelector('tbody td');
+    let tRow = document.querySelectorAll('tbody tr');
+    let tHeadRow = document.querySelector('tbody tr td')
+    const box = document.querySelector('.box');
+    let totalRowcnt = tRow.length;
+
+    const count = document.querySelectorAll('.num');
+
+    for(let i = 0; i < count.length; i++){
+        count[i].innerHTML = i+1;
+    }
+
+    const onFirstBtnClick = () =>{
+        const str = prompt('값 입력');
+        if(str ===""){
+            alert('정상적인 값을 입력해주세요')
+            return false;
+        }else{
+            alert(str);
+            return str;
+        }
+    }
+
+    const onSecondBtnClick = () =>{
+        tRow = document.querySelectorAll('tbody tr');
+        const str = onFirstBtnClick();
+        if(str!==false){
+            const newHead = document.createElement('td');
+            newHead.append(str);
+            tHead.appendChild(newHead);
+            
+            for(let i = 0; i < tRow.length; i++){
+                const newTd = document.createElement('td');
+                tRow[i].appendChild(newTd);
+            }
+        }
+    }
+
+    const addRow = () => {
+        const boxInput = document.querySelectorAll('.box input');
+        const newRow = document.createElement('tr');
+        const num = document.createElement('td');
+
+        num.setAttribute('class', 'num');
+        num.append(++totalRowcnt);
+        newRow.appendChild(num);
+
+        for(let i = 0; i < boxInput.length; i++){
+            const newTd = document.createElement('td');
+            newTd.append(boxInput[i].value);
+            newRow.appendChild(newTd);
+        }
+        tbody.appendChild(newRow);
+    }
+
+    const onThirdBtnClick =()=>{
+        box.classList.toggle('show');
+        tHeadRow = document.querySelectorAll('thead tr td');
+        for(let i = 1; i < tHeadRow.length; i++){
+            const newInput = document.createElement('input');
+            newInput.setAttribute('type', 'text');
+            newInput.setAttribute('name', tHeadRow[i].innerHTML);
+            box.appendChild(newInput);
+        }
+        const newBtn = document.createElement('button');
+        newBtn.append('입력');
+        newBtn.addEventListener('click', ()=>{
+            addRow();
+        })
+        box.appendChild(newBtn)
+        if(box.classList[1] === undefined){
+            box.innerHTML = "";
+        }
+    }
+
+    const onDeleteClick = () =>{
+        const pmt = prompt('삭제할 번호를 입력해 주세요');
+        const cell = parseInt(pmt);
+        tRow = document.querySelectorAll('tbody tr');
+        const item = document.querySelectorAll('.num');
+        if(Number.isInteger(parseInt(cell)) && cell <= tRow.length ){
+            tRow[cell -1].remove();
+            for(let i = 0; i < item.length; i++){
+                totalRowcnt = 0;
+                item[i].innerHTML = ++totalRowcnt;
+            }
+        }
+    }
+
+    firstBtn.addEventListener('click', ()=>{
+        onFirstBtnClick();
+    })
+
+    secoundBtn.addEventListener('click', ()=>{
+        onSecondBtnClick();
+    })
+    
+    thirdBtn.addEventListener('click', ()=>{
+        onThirdBtnClick();
+    })
+
+    forthBtn.addEventListener('click', ()=>{
+        onDeleteClick();
+    })
+
+</script>
+</body>
+</html>
