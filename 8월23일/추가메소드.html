@@ -17,6 +17,8 @@
 
             //이미지 생성
             let vimg = "<img src='../images/" + str +".jpg' alt='"+ str2 +"' width=50 height=50>";
+            
+            
 
             // p태그 뒤쪽에 추가하기
             // $(this).append(vimg);
@@ -32,7 +34,31 @@
 
             // p태그 바깥 뒤쪽에 추가하기
             // $(this).after(vimg);
-            $(vimg).insertAfter(this);
+            // $(vimg).insertAfter(this);
+
+            //이미지 생성2
+            // $('<img>', {
+            //     'src' : '../images/' + str + '.jpg',
+            //     'width' : '100px',
+            //     'height' : '100px',
+            //     'alt' : str2
+            // }).appendTo(this);
+            
+            //이미지 생성3
+            $(this).before($('<img>',{
+                'src' : '../images/' + str + '.jpg',
+                'width' : '100px',
+                'height' : '100px',
+                'alt' : str2
+            }));
+
+            
+        });
+
+
+        $('#box1 btn1').on('click', function(){
+            $('#box1 p').remove('img');
+
         });
 
     });
@@ -47,6 +73,8 @@
 </head>
 <body>
     <div class="box" id="box1">
+        <button id="btn1">뒤에삭제</button>
+        <button id="btn2">앞에삭제</button>
         <p title="사자">사자</p>
         <p title="호랑이">호랑이</p>
         <p title="coffee">coffee</p>

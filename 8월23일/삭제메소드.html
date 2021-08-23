@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+$(function(){
+    
+    $('#btn1').on('click', function(){
+        $('#rst1').empty();
+    });
+    
+    $('#btn2').on('click', function(){
+        $('#rst2').remove();
+    });
+
+    $('#btn3').on('click', function(){
+        $('p').remove('#pp');
+    });
+
+});
+</script>
+<style>
+    div{
+        background: yellow;
+        margin: 10px;
+    }
+    #rst1{
+        border: 2px dashed red;
+        height: 50px;
+
+    }
+    #rst2{
+        border: 2px dashed blue;
+        height: 50px;
+    }
+    p{
+        border: 2px solid lightgray;
+    }
+</style>
+</head>
+<body>
+    <input type="button" name="btn1" value="empty" id="">
+    <input type="button" name="btn2" value="remove" id="">
+    <input type="button" name="btn3" value="remove_sel" id="">
+
+    <br>
+
+    <div id="rst1">
+        <p>Hello jQuery</p>
+    </div>
+    <br>
+    <div id="rst2">
+        <p>Hello jQuery</p>
+    </div>
+
+    <p>안녕하세요</p>
+
+    <p id="pp">수업이 곧 끝나겠군요</p>
+</body>
+</html>

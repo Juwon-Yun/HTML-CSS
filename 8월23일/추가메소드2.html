@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+$(function(){
+    $('#append').on('click', function(){
+        $('#rst1').append($('#rst1 img').first());
+        // $('#rst1').prepend($('#rst1 img').last());
+        // $('#rst1').after($('#rst1 img').first());
+
+    });
+   
+    $('#prepend').on('click', function(){
+        // $('#rst1').append($('#rst1 img').first());
+        $('#rst1').prepend($('#rst1 img').last());
+        // $('#rst1').before($('#rst1 img').last());
+
+    });
+
+});
+</script>
+<style>
+    img{
+        width: 100px;
+        height: 100px;
+    }
+    .img1{
+        border: 3px solid black;
+    }
+    .img2{
+        border: 3px solid red;
+    }
+    .img3{
+        border: 3px solid orange;
+    }
+    .img4{
+        border: 3px solid aqua;
+    }
+</style>
+</head>
+<body>
+    <pre>
+        기존 이미지를 append 또는 appendTo하면 기존의 이미지가 뒤로 이동한다(잘라내고 다시 뒤로 붙이는 현상)
+    </pre>
+
+    <input type="button" name="" id="append" value="뒤에 붙임">
+    <input type="button" name="" id="prepend" value="앞에 붙임">
+    <br>
+    <div id="rst1">
+        <img src="../images/coffee.jpg" alt="coffee" class="img1">
+        <img src="../images/space1.jpeg" alt="space1" class="img2">
+        <img src="../images/sponge.jpg" alt="sponge" class="img3">
+        <img src="../images/사자.jpg" alt="사자" class="img4">
+    </div>
+
+</body>
+</html>
