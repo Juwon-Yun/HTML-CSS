@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+    this;
+    console.log(this);
+    
+    function a(){
+        console.log(this);
+    };
+    a();
+
+    var obj = {
+        a: function(){
+            console.log(this);
+        },
+    };
+    obj.a();
+</script>
+<style>
+</style>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        $('#runBtn').on('click', function(){
+            let res = "";
+            //각 요소의 상태 값 가져오기
+            res += "체크박스 : " + $('#chkTest').prop('checked') + "<br>";
+            res += "라디오버튼 : " + $('#rdoTest').prop('checked') + "<br>";
+            res += "셀렉트박스 option:eq(2) : " + $('#selTest option:eq(2)').prop('selected') + "<br>";
+            res += "text is readonly : " + $('#chkTest').prop('readonly') + "<br>";
+
+            $('#rst').html(res);
+        });
+        $('#changeBtn').on('click', function(){
+
+            //현재 상태값
+            let chk = $('#chkTest').prop('checked');
+            let rdo = $('#rdoTest').prop('checked');
+            let sel = $('#selTest option:eq(2)').prop('selected');
+            let txt = $('#chkTest').prop('readonly');
+            
+            //반대 상태로 변경하기
+            $('#chkTest').prop('checked',!chk);
+            $('#rdoTest').prop('checked',!rdo);
+            $('#selTest option:eq(2)').prop('selected', !sel);
+            $('#chkTest').prop('readonly', !txt);
+
+        });
+
+        $('.chkAll').on('click', function(){
+            //체크일때 true
+            let chk = $(this).prop('checked');
+
+            // chk가 true일떄 다음에 오는 모든것을( nextAll() ) true, false일때는 false
+            // this = #chkAll
+            // $(this).nextAll().prop('checked', chk);
+
+            // this에서의 부모(div)에서 .chk을 find해 prop('checked', chk) 해준다
+            $(this).parent().find('.chk').prop('checked', chk);
+        });
+
+
+    });
+</script>
+<style>
+</style>
+</head>
+<body>
+<div class="box" id="box1">
+    <pre>
+    prop("속성 명") : 상태값 가져오기 - true / false 리턴
+    prop("속성 명", value) : true / false 설정
+    실행 버튼 - 현재의 상태 값을 출력
+    변경 버튼 - 현재의 상태 값을 반대 상태로 변경
+    </pre>
+    
+    
+    <br><br>
+    체크박스:
+    <input type="checkbox" name="" id="chkTest">
+    <br><br>
+    체크박스(라디오버튼):
+    <input type="radio" name="" id="rdoTest" checked>
+    <br><br>
+    리스트박스(select객체):
+    <select name="" id="selTest">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+    <br><br>
+    text객체(readonly) :
+    <input type="text" name="" id="txtTest" value="가나다" readonly>
+    <br><br>
+    
+    button객체(disabled):
+    <button value="실행" id="runBtn">실행</button>
+    <button value="변경" id="changeBtn">변경</button>
+    <br><br>
+
+    <div id="rst" class="box"></div>
+</div>
+<div class="box" id="box2">
+    <div>
+        체크박스(전체선택/해제)<br>
+        <input type="checkbox" name="" id="chkAll">전체선택
+        <input type="checkbox" name="" class="chk">1
+        <input type="checkbox" name="" class="chk">2
+        <input type="checkbox" name="" class="chk">3
+        <input type="checkbox" name="" class="chk">4
+        <input type="checkbox" name="" class="chk">5
+        <br><br>
+    </div>
+    <br><br>
+    <div>
+        체크박스(전체선택/해제)<br>
+        <input type="checkbox" name="" class="chkAll">전체선택
+        <input type="checkbox" name="" class="chk">1
+        <input type="checkbox" name="" class="chk">2
+        <input type="checkbox" name="" class="chk">3
+        <input type="checkbox" name="" class="chk">4
+        <input type="checkbox" name="" class="chk">5
+        <br><br>
+    </div>
+</div>
+</body>
+</html>

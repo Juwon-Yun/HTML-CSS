@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        $('#box1 p').on('click', function(){
+            // 내가 한거
+            // let lion = $("<img src=../images/사자.jpg>");
+                // $(this).append(lion);
+
+            let str = $(this).text();
+            let str2 = $(this).attr('title');
+
+            //이미지 생성
+            let vimg = "<img src='../images/" + str +".jpg' alt='"+ str2 +"' width=50 height=50>";
+
+            // p태그 뒤쪽에 추가하기
+            // $(this).append(vimg);
+            // $(vimg).appendTo(this);
+
+            // p태그 앞쪽에 추가하기
+            // $(this).prepend(vimg);
+            // $(vimg).prependTo(this);
+
+            // p태그 바깥 앞쪽에 추가하기
+            // $(this).before(vimg);
+            // $(vimg).insertBefore(this);
+
+            // p태그 바깥 뒤쪽에 추가하기
+            // $(this).after(vimg);
+            $(vimg).insertAfter(this);
+        });
+
+    });
+</script>
+<style>
+    p{
+        border: 1px solid red;
+        width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+<body>
+    <div class="box" id="box1">
+        <p title="사자">사자</p>
+        <p title="호랑이">호랑이</p>
+        <p title="coffee">coffee</p>
+        <p title="sponge">sponge</p>
+    </div>
+</body>
+</html>

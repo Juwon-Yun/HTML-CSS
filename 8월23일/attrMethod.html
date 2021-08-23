@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+$(function(){
+
+    // 첫 번째 항목의 src값만 반환
+    console.log( $('img').attr('src') );
+    
+    //모든 항목에 동일한 값의 title을 설정
+    $('img').attr('title', '동일한 타이틀 값이 적용');
+
+    //함수 내부에서 this객체를 사용하여 각 이미지에 title값을 다르게 설정
+    $('img').attr('title', function(){
+        //img의 속성 값 가져오기
+        let vsrc = $(this).attr('src');
+        console.log(vsrc);
+
+        //src 속성값에서 이미지 이름 추출
+        let str = vsrc.lastIndexOf("/") + 1;
+        console.log(str);
+        let end = vsrc.lastIndexOf(".");
+        console.log(end);
+        let vname = vsrc.substring(str, end);
+
+        console.log(vname);
+
+        return vname;
+    });
+
+    $('img[alt="사자였던것"]').removeAttr('src');
+
+});
+</script>
+<style>
+    img{
+        width: 100px;
+        height: 100px;
+    }
+</style>
+</head>
+<body>
+    <h3>src의 이미지 이름으로 title 속성 설정하기</h3>
+<div class="box">
+    <img src="../images/space1.jpeg" alt="space1">
+    <img src="../images/sponge.jpg" alt="sponge">
+    <img src="../images/coffee.jpg" alt="coffee">
+    <img src="../images/사자.jpg" alt="사자였던것">
+    <img src="../images/호랑이.jpg" alt="호랑이">
+</div>
+</body>
+</html>

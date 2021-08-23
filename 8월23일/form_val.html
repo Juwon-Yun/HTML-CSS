@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        $('#btnview').on('click', function(){
+            //폼양식필드 값을 얻어오기 - val() 메소드 이용
+            let res = "이름 : " + $('#user').val() + "<br>";
+            //.gend:checked 체크된 input.gend의 value값 가져오기
+            res += "성별 : " + $('.gend:checked').val() + "<br>";
+            // g는 global의 g 이다
+            res += "소개 : " + $('#intro').val().replace(/\r/g,"").replace(/\n/g, "<br>") + "<br>";
+            res += "직업 : " + $('#work option:selected').val() + "<br>";
+
+            $('#rst').html(res);
+        });
+
+        $('#btnchange').on('click',function(){
+            let name = prompt("이름을 입력하고 변경한다");
+            $('#user').val(name);
+        });
+    });
+</script>
+<style>
+</style>
+</head>
+<body>
+    <!-- button#btnview의 submit 기능을 정지시킴 -->
+    <form action="" onsubmit="return false">
+        <label for="user">이름</label>
+        <input type="text" name="" id="user" value="유재석"><br>
+        <br><br>
+
+        <label for="">성별</label>
+        <input type="radio" class="gend" name="gender" value="남자" checked> 남자
+        <input type="radio" class="gend" name="gender" value="여자"> 여자
+        <br><br>
+        
+        <label for="">소개</label>
+        <textarea name="" id="intro" cols="20" rows="4"></textarea>
+        <br><br>
+        
+        <label for="">직업</label>
+        <select name="" id="work">
+            <option value="programmer">programmer</option>
+            <option value="designer">designer</option>
+            <option value="publisher">publisher</option>
+        </select>
+        <br><br>
+        
+        <!-- submit값이 default -->
+        <button id="btnview">조사하기</button>
+        <button type="button" id="btnchange">이름변경</button>
+        
+    </form>
+    <br><br>
+    <div id="rst"></div>
+</body>
+</html> 
