@@ -25,6 +25,7 @@ let crudApp = new function () {
             tr.appendChild(th);
         }
         
+
         let div = document.getElementById('container');
         div.innerHTML = "수강관리 App";
         div.appendChild(table);

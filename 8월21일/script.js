@@ -46,6 +46,55 @@ let crudApp = new function(){
             tr.appendChild(th);
         }
 
+        //td 작성
+        for( let k = 0; k < this.myClass.length; k++){
+            // table에 일단 한 행을 추가
+            tr = table.insertRow(-1);
+            // table header 길이만큼 순회하며 거기에 매칭되는 데이터 갖고오기
+            for(let c = 0; c < this.col.length; c++){
+                let tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = this.myClass[k][this.col[c]];
+            }
+            // 버튼 만들기
+            // update 버튼 만들기
+            this.td = document.createElement('td');
+            // 방금 만들어진 tr 뒤에 요소생성
+            tr.appendChild(this.td);
+            // input 버튼 만들기
+            let btUpdate = document.createElement('input');
+            btUpdate.setAttribute('type', 'button');
+            btUpdate.setAttribute('value', 'Update');
+            btUpdate.setAttribute('id', 'Edit' + k);
+            btUpdate.setAttribute('style', 'background-color : #44CCEB');
+            // 이 버튼이 클릭될 때 실행할 메소드
+            btUpdate.setAttribute('onclick', 'crudApp.Update(this)');
+            this.td.appendChild(btUpdate);
+            
+            // // save 버튼 만들기
+            // tr.appendChild(this.td);
+            // let btSave = document.createElement('input');
+            // btUpdate.setAttribute('type', 'button');
+            // btUpdate.setAttribute('value', 'Save');
+            // btUpdate.setAttribute('id', 'Save' + k);
+            // btUpdate.setAttribute('style', 'display:none;');
+            // // 이 버튼이 클릭될 때 실행할 메소드
+            // btUpdate.setAttribute('onclick', 'crudApp.Save(this)');
+            // this.td.appendChild(btSave);
+           
+            // Delete 버튼 만들기
+            this.td = document.createElement('td');
+            tr.appendChild(this.td);
+            let btDelete = document.createElement('input');
+            btUpdate.setAttribute('type', 'button');
+            btUpdate.setAttribute('value', 'Delete');
+            btUpdate.setAttribute('id', 'Delete' + k);
+            btUpdate.setAttribute('style', 'background-color : #ED5650');
+            // 이 버튼이 클릭될 때 실행할 메소드
+            btUpdate.setAttribute('onclick', 'crudApp.Delete(this)');
+            this.td.appendChild(btDelete);
+            
+        }
+
         let div = document.getElementById('container');
         div.innerHTML = "<h3>수강관리 App</h3>";
         div.appendChild(table);
