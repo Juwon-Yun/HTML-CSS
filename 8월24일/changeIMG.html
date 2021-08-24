@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Insert title here</title>
+    <link rel="styleSheet" href="../css/outstyle.css">
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            let origin = "";
+
+            // $('img').on('mouseover', function(){
+            //     //원래 소스 경로를 origin 변수에 담음
+            //     origin = $(this).attr('src');
+            //     //두번째 소스 경로를 copy 변수에 담음
+            //     let copy = $(this).attr('src2');
+            //     //원래 소스 경로에 copy에 담긴 경로를 적용
+            //     $(this).attr('src', copy);
+            // });
+
+            // $('img').on('mouseout', function(){
+            //     //마우스 아웃했을 때 원래 src로 돌아옴
+            //     $(this).attr('src', origin);
+            // });
+            
+            // mouseover, mouseout 기능을 hover로 대체
+            //$('img').hover( function(){mouseover기능}, funtion(){mouseout기능} );
+            $('img').hover(function () {
+                origin = $(this).attr('src');
+                let copy = $(this).attr('src2');
+                $(this).attr('src', copy);
+            }, function () {
+                $(this).attr('src', origin);
+
+            });
+
+            $('img').on('dblclick', function () {
+                $(this).hide();
+                // $(this).attr('src', 'display:none');
+                if ($('img:visible').length < 1) {
+                    $('#show').show();
+                }
+            });
+
+            $('#show').on('click', function () {
+                $('img').show();
+                $(this).hide();
+            });
+
+            //mouseoverr, mouseout 기능을 hover로 대체
+
+        })
+    </script>
+    <style>
+        #show {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="보이기" id="show">
+    <br>
+    <div id="rst">
+        <img src="../images/coffee.jpg" title="커피" src2="../images/sponge.jpg">
+        <img src="../images/space1.jpeg" title="우주" src2="../images/사자.jpg">
+        <img src="../images/sponge.jpg" title="스밥" src2="../images/coffee.jpg">
+        <img src="../images/사자.jpg" title="사자" src2="../images/space1.jpeg">
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+    let cnt = 0;
+
+    // $('div').delegate('.btn', 'click', function(){});
+    $('div').on('click', '.btn', function(){
+
+        cnt++;
+
+        $('<input>',{
+            'type' : 'button',
+            'class' : 'btn',
+            'value' : '새로운버튼'+cnt
+        }).appendTo('#rst');
+
+    });
+
+    $('#clear').on('click', function(){
+        $('div').off('click');
+    });
+    
+});
+</script>
+<style>
+</style>
+</head>
+<body>
+    <pre>
+        이벤트 등록 형식 : bind
+        실행 이전에 이미 document에 생성되어 있는 요소에만 이벤트 핸들러가 동작한다
+        같은 이벤트를 등록한다
+        $(부모요소 또는 document).delegate('대상요소', '이벤트이름', function(){})
+        #(부모요소 또는 document).on('이벤트이름', '대상요소', function(){})
+    </pre>
+
+    <div>
+        <input type="button" value="버튼1" class="btn">
+        <input type="button" value="버튼2" class="btn">
+        <br><br>
+        <input type="button" value="해제" id="clear">
+        <br><br>
+    </div>
+    <div id="rst"></div>
+</body>
+</html>

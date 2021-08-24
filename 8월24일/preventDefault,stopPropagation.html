@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        $('#link').on('click', function(){
+            let age = parseInt(prompt("나이를 입력하세요"));
+
+            //15세 미만 이동금지
+            if(age <= 15){
+                event.preventDefault();
+                // return false로 대체할 수 있으나, 하단 내용을 수행하지 않음을 주의
+                // return false;
+                alert("페이지로 이동불가");
+            }
+        });
+        $('#box2 button').on('click', function(){
+            $(this).css('background', 'teal');
+            // 본인의 event에만 적용이 되어서 span의 css값이 적용되지 않음
+            event.stopPropagation();
+        });
+        
+        $('#box2 span').on('click', function(){
+            $(this).css('border', '2px dashed red');
+            event.stopPropagation();
+        });
+        
+        $('#box2 button').on('click', function(){
+            $(this).append(" HELLO~~\n");
+        });
+
+    });
+</script>
+<style>
+    #box2 div{
+        width: 500px;
+        height: 300px;
+        background: pink;
+        padding: 50px;
+    }
+    #box2 span{
+        width: 400px;
+        height: 250px;
+        background : orange;
+        display : inline-block;
+    }
+    #box2 button{
+        margin: 40px;
+    }
+</style>
+</head>
+<body>
+    <div class="box" id="box1">
+        <h3>event.proventDefault() : 요소의 기본이벤트 실행을 금지시킨다</h3>
+        <p><a href="http://www.naver.com" id="link">네이버</a>로 이동</p>
+    </div>
+
+    <div class="box" id="box2">
+        <h3>event.stopPropagation() : 이벤트 버블링을 금지시킨다</h3>
+        <div>
+            <span>
+                <button>클릭하세요</button>
+            </span>
+        </div>
+    </div>
+</body>
+</html>

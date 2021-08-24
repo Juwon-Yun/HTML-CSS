@@ -12,7 +12,10 @@ pre{
 	margin: 10px;
 	padding: 10px;
 }
-
+img{
+	width: 150px;
+	height: 150px;
+}
 /* *{
 	box-sizing: border-box;
 	margin: 0;
