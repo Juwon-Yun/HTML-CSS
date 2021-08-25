@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<style>
+    .siblings, .siblings *{
+        display: block;
+        border: 2px solid lightgray;
+        color: lightgray;
+        padding: 5px;
+        margin: 15px;
+    }
+</style>
+<script>
+    $(function(){
+        //상위요소 찾기
+        $('#parent').on('click', function(){
+            // span의 부모 검색
+            $('#rst1 span').parent().css({
+                'color' : 'red',
+                'border' : '2px solid red'
+            });
+        });
+
+        $('#parents').on('click', function(){
+            // span의 모든 조상 검색
+            $('#rst1 span').parents().css({
+                'color' : 'red',
+                'border' : '2px solid magenta'
+            });
+        });
+
+        $('#parents_sel').on('click', function(){
+            // span의 조상들 중 ul요소 검색
+            $('#rst1 span').parents('ul').css({
+                'color' : 'red',
+                'border' : '2px solid green'
+            });
+        });
+
+        $('#parentsUntil').on('click', function(){
+            //rst1 범위안의 span에서부터 rst1범위안의 div전까지 사이 요소들을 검색
+            //span부터 지정한 div까지
+            $('#rst1 span').parentsUntil('#rst1 div').css({
+                'color' : 'red',
+                'border' : '2px solid olive'
+            });
+        });
+
+        $('#closest').on('click', function(){
+            //span을 기준으로 조상 중에서 가장 가까운 ul 요소를 검색
+            $('#rst1 span').closest('ul').css({
+                'color' : 'red',
+                'border' : '2px solid blue'
+            });
+        });
+
+        //하위요소 탐색
+        $('#find').on('click', function(){
+            $('#rst2').find('span').css({
+                'color' : 'red',
+                'border' : '2px solid blue'
+            });
+        });
+
+        $('#outer').on('click', function(){
+            // outer버튼의 부모에서 span을 검색
+            $(this).parent().find('span').css({
+                'color' : 'red',
+                'border' : '2px solid red'
+            });
+        });
+
+        $('#children').on('click', function(){
+            // 선택 요소의 자식 요소들만 검색
+            $(this).parents('#rst2').find('#inner').css({
+                'border': '2px solid darkred',
+                'color': 'darkred'
+            });
+        });
+    
+        $('#inner').on('click', function(){
+            // inner버튼의 부모중 rst2영역에서 span을 검색 또는 부모중 rst2영역의 span을 검색
+            // $(this).parents().find('#rst2 span').css({
+            $(this).parents('#rst2').find('span').css({
+                'color' : 'red',
+                'border' : '2px solid red'
+            });
+        });
+
+
+        //next
+        //형제요소 탐색 (sibling=형제)
+        $('#sibling1').on('click', function(){
+            $('#rst3 li.start').siblings().css({
+                'color' : 'red',
+                'border' : '2px solid red'
+            });
+        });
+        $('#next').on('click', function(){
+            $('#rst3 li.start').next().css({
+                'color' : 'blue',
+                'border' : '2px solid blue'
+            });
+        });
+        $('#nextAll').on('click', function(){
+            $('#rst3 li.start').nextAll().css({
+                'color' : 'green',
+                'border' : '2px solid green'
+            });
+        });
+        $('#nextUntil').on('click', function(){
+            $('#rst3 li.start').nextUntil('#rst3 li.stop').css({
+                'color' : 'orange',
+                'border' : '2px solid orange'
+            });
+        });
+
+
+        //prev
+        //형제요소 탐색 (sibling=형제)
+        $('#sibling2').on('click', function(){
+            $('#rst4 li.stop').siblings().css({
+                'color' : 'red',
+                'border' : '2px solid red'
+            });
+        });
+        $('#prev').on('click', function(){
+            $('#rst4 li.stop').prev().css({
+                'color' : 'blue',
+                'border' : '2px solid blue'
+            });
+        });
+        $('#prevAll').on('click', function(){
+            $('#rst4 li.stop').prevAll().css({
+                'color' : 'green',
+                'border' : '2px solid green'
+            });
+        });
+        $('#prevUntil').on('click', function(){
+            $('#rst4 li.stop').prevUntil('#rst3 li.start').css({
+                'color' : 'orange',
+                'border' : '2px solid orange'
+            });
+        });
+    });
+</script>
+</head>
+<body>
+    
+    <div id="rst1">
+        <input type="button" id="parent" value="parent">
+        <input type="button" id="parents" value="parents">
+        <input type="button" id="parents_sel" value="parents_sel">
+        <input type="button" id="parentsUntil" value="parentsUntil">
+        <input type="button" id="closest" value="closest">
+        
+        <div style="width:500px;" class="siblings">div(great-great-grandparent)
+            <ul>ul(great-grandparent)  
+                <ul>ul (grandparent)  
+                    <li>li(direct parent)
+                        <span>span(span을 기준으로)
+                            <ul>ul(span-child)
+                                <li>li(ul-child)
+                                    
+                                </li>
+                            </ul>
+                        </span>
+                    </li>
+                </ul>   
+            </ul>   
+        </div>
+    </div>
+    <br><br><br>
+    <div id="rst2">
+        <input type="button" id="find" value="find">
+        <input type="button" id="outer" value="outer">
+        <input type="button" id="children" value="children">
+    
+        <div style="width:500px;" class="siblings">div(great-grandparent)
+            <ul>ul (grandparent)  
+                <li>li(direct parent)
+                    <span>span(span을 기준으로)
+                        <input type="button" id="inner" value="inner">
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br><br><br>
+    <div id="rst3">
+        <input type="button" id="sibling1" value="sibling1">
+        <input type="button" id="next" value="next">
+        <input type="button" id="nextAll" value="nextAll">
+        <input type="button" id="nextUntil" value="nextUntil">
+
+        <div style="width:500px;" class="siblings">
+            <ul>ul (parent)  
+              <li>li (prev sibling of "start")</li>
+              <li>li (prev sibling of "start")</li>
+              <li class="start">li (sibling .start)</li>
+              <li>li (next sibling of "start")</li>
+              <li>li (next sibling of "start")</li>
+              <li class="stop">li (sibling end .stop)</li>
+            </ul>   
+          </div>
+    </div>
+    <br><br><br>
+    <div id="rst4">
+        <input type="button" id="sibling2" value="sibling2">
+        <input type="button" id="prev" value="prev">
+        <input type="button" id="prevAll" value="prevAll">
+        <input type="button" id="prevUntil" value="prevUntil">
+
+        <div style="width:500px;" class="siblings">
+            <ul>ul (parent)  
+              <li>li (prev sibling of "stop")</li>
+              <li>li (prev sibling of "stop")</li>
+              <li class="stop">li (sibling end .stop)</li>
+              <li>li (next sibling of "start")</li>
+              <li>li (next sibling of "start")</li>
+              <li class="start">li (sibling .start)</li>
+            </ul>   
+          </div>
+    </div>
+</body>
+</html>
