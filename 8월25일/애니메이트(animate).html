@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "styleSheet" href="../css/outstyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        $('#btn1').on('click', function(){
+            $('img').animate({
+                'left':'+=50px',
+                // 'height' : '+=500px',
+                // 'width' : '+=500px'
+            },
+            "slow")
+        });
+        $('#btn2').on('click', function(){
+            $('img').animate({
+                'left':'-=50px',
+                // 'height' : '-=500px',
+                // 'width' : '-=500px'
+            },
+            "slow")
+        });
+        $('#btn3').on('click', function(){
+            $('#p1').css('fontSize', '+=4px');
+            $('#p2').animate({'fontSize':'+=4px'},"slow")
+        });
+    });
+</script>
+<style>
+img{
+    position: relative;
+}
+</style>
+</head>
+<body>
+    <input type="button" value=">>>>>" id="btn1">
+    <input type="button" value="<<<<<" id="btn2">
+
+    <br>
+    <br>
+
+    <div id="rst">
+        <img src="../images/sponge.jpg" alt="스폰지밥">
+    </div>
+
+    <br><br>
+
+    <input type="button" value="확인" id="btn3">
+    <p id="p1">무궁화 꽃이 피었습니다</p>
+    <p id="p2">펄~~~펄 눈이 옵니다</p>
+</body>
+</html>

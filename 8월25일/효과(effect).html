@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<!-- <link rel = "styleSheet" href="../css/outstyle.css"> -->
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        
+        $('#btn1').on('click', function(){
+            $('img').hide(1000, function(){
+                alert("숨김(콜백)");
+            });
+        });
+
+        $('#btn2').on('click', function(){
+            $('img').show(1000);
+
+        });
+
+        $('#btn3').on('click', function(){
+            $('img').toggle(1000);
+
+        });
+
+        $('#btn4').on('click', function(){
+            $('img').slideUp(1000);
+
+        });
+
+        $('#btn5').on('click', function(){
+            $('img').slideDown(1000);
+
+        });
+
+        $('#btn6').on('click', function(){
+            $('img').slideToggle(1000);
+
+        });
+
+        $('#btn7').on('click', function(){
+            $('img').fadeOut(1000);
+
+        });
+
+        $('#btn8').on('click', function(){
+            $('img').fadeIn(1000);
+
+        });
+
+        $('#btn9').on('click', function(){
+            $('img').fadeToggle(1000);
+
+        });
+
+    });
+</script>
+<style>
+   /* img {
+    height:300px;
+    background-color: #99CCFF;
+    padding:20px;
+    margin-top:10px;
+    border-bottom:5px solid #3399FF;
+} */
+</style>
+</head>
+<body>
+    <input type="button" value="hide" id="btn1">
+    <input type="button" value="show" id="btn2">
+    <input type="button" value="toggle" id="btn3">
+    <input type="button" value="slideUp" id="btn4">
+    <input type="button" value="slideDown" id="btn5">
+    <input type="button" value="slideToggle" id="btn6">
+    <input type="button" value="fadeOut" id="btn7">
+    <input type="button" value="fadeIn" id="btn8">
+    <input type="button" value="fadeToggle" id="btn9">
+    <br><br>
+    <div id="rst">
+        <img src="../images/sponge.jpg" alt="스폰지밥">
+    </div>
+</body>
+</html>
