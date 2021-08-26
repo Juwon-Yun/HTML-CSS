@@ -3,10 +3,11 @@
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
-<link rel = "styleSheet" href="../css/outstyle.css">
+<link rel = "styleSheet" href="../css/outStyle.css">
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script>
     $(function(){
+        
         $('#box1 input:button').on('click', function(){
             // 비동기 통신을 위한 XMLHttpRequest객체 생성
             // XMLHttpRequest : 서버와 상호작용을 하기 위해서 사용. 새로고침 없이 url로 부터 데이터를 받을 수 있다.
@@ -19,10 +20,24 @@
 
             //서버로부터 응답 확인 (response)
             //ajax에서 서버로 응답을 확인하기 위해 XMLHttpRequest객체의 프로퍼티를 활용한다
-            // -readyState : 
-            // -status :
-            // -onreadystatechange : 
+            // -readyState : Send()시 서버에서 요청페이지의 상태 변환 ( (0: send전 준비-객체생성단계 1: 로딩중 - 요청정보를 ) )
+            // -status : 결과에 대한 상태 ( 200:결과성공, 403: 요청오류, 404: 요청페이지없음, 500: 소스코드에러, 서버내부오류)
+            // -onreadystatechange : readyState값이 변경될 때마다 자동으로 호출되는 함수를 설정한다
+            //                       ( 서버에서 응답이 도착할 때까지 총 5번 호출된다 - readyState 0~4 호출 )
+            //                       위 프로퍼티를 사용하므로서 서버에 요청한 데이터의 존재와 응답이 도착하는 순간을 특정할 수 있다.
+            req.onreadystatechange=function(){
 
+                if(this.readyState == 4 && this.status == 200){
+                    //응답데이터를 전달받을 수 있다
+                    console.log(this.responseText);
+                    //문자열 데이터
+                    let a = this.responseText;
+                    //배열 형태로 반환
+                    let b = a.split("/");
+
+                    console.log("split메소드 배열 형태 데이터 만듬 - >> " + b );
+                }
+            }
         });
     });
 </script>
