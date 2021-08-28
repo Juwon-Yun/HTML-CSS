@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel ="stylesheet" href = "../css/outStyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        //버튼을 클릭하면 ajax로 데이터를 가져오기
+        //XMLHttpRequest 객체 생성
+        //open(), send() 사용하여
+        $('#box1 input:button').on('click', function(){
+            let req = new XMLHttpRequest();
+            req.open("get", "jsonObjTest.jsp", "true");
+            req.send();
+       
+        
+        // 1. JSON Object 형식의 데이터 가져오기
+        //method : get
+        //url : jsonObjTest.jsp
+        //응답을 위해 onreadystatechange와 readyState, status 사용
+        //값을 받아올 때 responseText 및 JSON 내부 객체의 parse() 활용
+        req.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200 ){
+                        let b = JSON.parse( this.responseText );
+                        let code = "<ul>";
+                            $.each(b, function(i, v){
+                                code += "<li>" + b[i] + "</li>";
+                            });
+                            code += "</ul>";
+                            $('#rst1').html(code);
+            }
+        };
+     });
+        // 2. JSON Object Array 형식의 데이터 가져오기 
+        //url : jsonObjArr.jsp
+        $('#box2 input:button').on('click', function(){
+            let req = new XMLHttpRequest();
+            req.open("get", "jsonObjArr.jsp", "true");
+            req.send();
+            req.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200 ){
+                            let b = JSON.parse( this.responseText );
+                            
+                            //key 값 가져오기
+                            let key = Object.keys(b);
+                            
+                            let code = "<ul>";
+                                $.each(b, function(i, v){
+                                	/* 
+                                	code += "<li>" + "이름" +" : "+ v.name + "</li>";
+                                    code += "<li>" + "전화번호" +" : "+ v.tel + "</li>";
+                                    code += "<li>" + "주소" +" : "+ v.addr + "</li><br>"; 
+                                    */
+                                    code += `이름 : ${v.name} <br>`;
+                                    code += `번호 : ${v.tel} <br>`;
+                                    code += `주소 : ${v.addr} <br><br>`;
+                                });
+                                code += "</ul>";
+                                $('#rst2').html(code);
+                }
+            };
+         });
+    });
+</script>
+<style>
+</style>
+</head>
+<body>
+    <div class="box" id="box1">
+        <input type="button" value="JSON Object">
+        <br>
+        <div id="rst1"></div>
+    </div>
+    <div class="box" id="box2">
+        <input type="button" value="JSON Object Array">
+        <br>
+        <div id="rst2"></div>
+    </div>
+</body>
+</html>

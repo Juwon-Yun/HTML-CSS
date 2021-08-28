@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/outStyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+$(function(){
+
+    let req = new XMLHttpRequest();
+
+    $('#box1 input:button').on('click', function(){
+
+        let id = $(':text').val();
+        let pw = $(':password').val();
+
+        // 요청데이터
+        let data = "id=" + id + "&pw=" + pw;
+
+        req.open('post','postTest.jsp');    //async true 생략가능
+
+        // post일때 실행한다 - 서버로 전송할 데이터의 MIME타입 지정(컨텐츠의 타입)지정
+        // aplication/x-www-form-urlencoded : key-value&key=value의 형태로 전송할 때 활용하는 컨텐츠 타입
+        req.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        req.send(data);
+
+        // 응답데이터
+        req.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                let aa = JSON.parse(this.responseText);
+
+                let code = `${aa.id}님 ${aa.sw}`;
+                $('#rst').html(code);
+            }
+        }
+
+    });
+
+});
+   
+</script>
+</head>
+<body>
+    <div class="box" id="box1">
+        <form>
+            ID : <input type="text" name="id"> <br>
+            PW : <input type="password" name="pw"> <br>
+            <input type="button" value="전송">
+            <input type="reset">
+        </form>
+        <div id="rst"></div>
+    </div>
+
+</body>
+
+</html>
